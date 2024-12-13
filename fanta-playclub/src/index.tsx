@@ -6,10 +6,18 @@ import App from "./App";
 import "./App.css";
 import reportWebVitals from "./reportWebVitals";
 
-const root = createRoot(document.getElementById("root") as HTMLElement);
+const rootElement = document.getElementById("root");
+console.log("Root element:", rootElement);
+
+if (!rootElement) {
+  throw new Error("Elemento root non trovato! Controlla il file index.html.");
+}
+
+const root = createRoot(rootElement);
+
 root.render(
     <React.StrictMode>
-        <App />
+      <App />
     </React.StrictMode>
 );
 

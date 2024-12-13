@@ -6,9 +6,7 @@ import Props from "./types";
 const Layout: React.FC<Props> = ({ children }) => {
     return (
         <div>
-            {/*<Navbar />
             {children}
-            <Footer />*/}
         </div>
     );
 };
