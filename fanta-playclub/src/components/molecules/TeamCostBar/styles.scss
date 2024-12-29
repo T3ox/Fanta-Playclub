@@ -1,0 +1,16 @@
+.progress-loader {
+    position: relative;
+    width: 85%;
+    height: 15px;
+    background-color: #d9d9d9;
+
+    .team-cost {
+        position: absolute;
+        top: 0;
+        //width: 70%;
+        height: 100%;
+        background-color: #40a0ee;
+        z-index: 1;
+        transition: width 0.5s ease-in-out;
+    }
+}
