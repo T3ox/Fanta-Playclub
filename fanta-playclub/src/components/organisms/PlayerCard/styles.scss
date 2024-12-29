@@ -1,0 +1,69 @@
+$animationTime: 0.5s;
+
+.custom-col {
+    width: 20%;
+    flex: 1 1 20%;
+    margin: 0 10px;
+
+    .player-card_container {
+        width: 100%;
+        height: auto;
+
+        .player-card_border {
+            position: relative;
+            // Card Container, più grande per dare bordo alla card
+            width: 100%;
+            aspect-ratio: 3 / 8;
+            box-sizing: border-box;
+            clip-path: polygon(0 0, 100% 0%, 100% 88%, 50% 100%, 0 88%);
+            transition: background $animationTime ease;
+
+            .player-card {
+                position: absolute;
+                top: 1%;
+                left: 2.5%;
+                width: 95%;
+                height: 98%;
+                clip-path: polygon(0 0, 100% 0%, 100% 88%, 50% 100%, 0 88%);
+                transition: background-color $animationTime ease;
+
+                .circle {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50px;
+                    height: 50px;
+                    background-color: #d4d4d4;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .plus {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #101a2c;
+                }
+            }
+        }
+
+        // Colore del bordo
+        .lol {
+            background: #d4b66c;
+
+            .player-card {
+                background-color: #0a1428; // Colore del banner
+            }
+        }
+
+        .valorant {
+            background: #ff4654;
+
+            .player-card {
+                background-color: #0f1722; // Colore del banner
+            }
+        }
+    }
+}
