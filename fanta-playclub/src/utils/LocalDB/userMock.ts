@@ -8,13 +8,13 @@ export const userMock = {
                 iD: 1,
                 riotID: "Summoner1",
                 image: "",
-                cost: 3,
+                cost: 2,
             },
             {
                 ID: 2,
                 riotID: "Summoner2",
                 image: "",
-                cost: 1,
+                cost: 3,
             },
             {
                 ID: 3,

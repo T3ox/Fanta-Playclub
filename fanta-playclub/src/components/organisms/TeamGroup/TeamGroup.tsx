@@ -23,7 +23,6 @@ const TeamGroup = () => {
             {players.map((player) => (
                 <PlayerCard key={player.id} />
             ))}
-            {}
         </div>
     );
 };

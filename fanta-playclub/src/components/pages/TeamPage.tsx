@@ -1,21 +1,21 @@
 // import circlePlus from "../../utils/circlePlus.svg";
 import { useUser } from "../../utils/context/User";
 import GameSwitcher from "../atoms/GameSwitcher/GameSwitcher";
-import TeamCostBar from "../molecules/TeamCostBar/TeamCostBar";
+import TeamCost from "../molecules/TeamCost/TeamCost";
 import TeamGroup from "../organisms/TeamGroup/TeamGroup";
+import "./styles.scss";
 
 const TeamPage = () => {
     const { selectedTeam } = useUser();
 
     return (
         <div
-            className="d-flex justify-content-center align-items-center flex-column"
+            className="team-page d-flex align-items-center flex-column"
             style={{ backgroundColor: "black" }}
         >
-            <TeamCostBar />
+            <TeamCost />
             <TeamGroup />
             <GameSwitcher />
-            {selectedTeam}
         </div>
     );
 };

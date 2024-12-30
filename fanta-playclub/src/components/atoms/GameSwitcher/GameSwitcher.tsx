@@ -5,12 +5,10 @@ const GameSwitcher = () => {
     const { changeSelectedTeam } = useUser();
 
     return (
-        <>
-            <label className="switch">
-                <input type="checkbox" onChange={changeSelectedTeam} />
-                <span className="slider"></span>
-            </label>
-        </>
+        <label className="switch my-4">
+            <input type="checkbox" onChange={changeSelectedTeam} />
+            <span className="slider"></span>
+        </label>
     );
 };
 
