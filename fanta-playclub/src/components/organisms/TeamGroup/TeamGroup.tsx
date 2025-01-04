@@ -1,18 +1,23 @@
 import { useUser } from "../../../utils/context/User";
-import { userMock } from "../../../utils/LocalDB/userMock";
-import PlayerCard from "../PlayerCard/PlayerCard";
+import { Player, userMock } from "../../../utils/LocalDB/userMock";
+import EmptyPlayerCard from "../../molecules/EmptyPlayerCard/EmptyPlayerCard";
 import "./styles.scss";
 
 const TeamGroup = () => {
-    const { selectedTeam, showPlayerModal, addPlayerShowModal } = useUser();
+    const { selectedTeam, players } = useUser();
 
-    const players =
+    const selectedPlayers =
         selectedTeam === "LoL"
             ? userMock.players.lol
             : userMock.players.valorant;
 
-    //showPlayerModal ? console.log("godo") : console.log("non godo");
+    function isEmptyObject(player: Player) {
+        return player.riotID === "" && player.cost == 0 ? true : false;
+    }
 
+    const emptyPlayerCard = (player: Player) => {
+        return isEmptyObject(player) ? true : false;
+    };
     return (
         <div
             className="team-group container d-flex justify-content-around bg-black"
@@ -20,7 +25,17 @@ const TeamGroup = () => {
         >
             {players.map((player) => (
                 <div className="custom-col" key={player.iD}>
-                    <PlayerCard key={player.iD} playerId={player.iD} />
+                    <div className="player-card_container">
+                        <div
+                            className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
+                        >
+                            {emptyPlayerCard(player) ? (
+                                <EmptyPlayerCard playerId={player.iD} />
+                            ) : (
+                                <h1>Godo</h1>
+                            )}
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
