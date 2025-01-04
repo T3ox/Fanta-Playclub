@@ -1,3 +1,3 @@
 export default interface Props {
-    handle: () => void;
+    playerId: number;
 }

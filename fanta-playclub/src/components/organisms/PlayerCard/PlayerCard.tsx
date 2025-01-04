@@ -1,10 +1,10 @@
 import React from "react";
 import { useUser } from "../../../utils/context/User";
-import GenericPlayerCard from "../../molecules/GenericPlayerCard/PlayerCard";
+import GenericPlayerCard from "../../molecules/GenericPlayerCard/GenericPlayerCard";
 import "./styles.scss";
 import Props from "./types";
 
-const PlayerCard: React.FC<Props> = ({ handle }) => {
+const PlayerCard: React.FC<Props> = ({ playerId }) => {
     const { selectedTeam } = useUser();
 
     function isEmptyObject(obj: object) {
@@ -21,7 +21,7 @@ const PlayerCard: React.FC<Props> = ({ handle }) => {
             <div
                 className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
             >
-                <GenericPlayerCard handle={handle} />
+                <GenericPlayerCard playerId={playerId} />
             </div>
         </div>
     );

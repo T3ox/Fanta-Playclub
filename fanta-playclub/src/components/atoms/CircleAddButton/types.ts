@@ -1,3 +1,3 @@
 export default interface Props {
-    handleClick: () => void;
+    handleClick: (iD: number) => void;
 }
