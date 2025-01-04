@@ -12,6 +12,7 @@ const Context = createContext<UserContext>({
 export const UserProvider = ({ children }: Props) => {
     // Variabile impostata a LoL perchè sarà sempre la prima pagina che ti apre
     const [selectedTeam, setSelectedTeam] = useState("LoL");
+    const [isAddPlayerModelOpen, setIsAddPlayerModelOpen] = useState(false);
 
     // Metodo per cambiare il team selezionato
     const changeSelectedTeam = () => {

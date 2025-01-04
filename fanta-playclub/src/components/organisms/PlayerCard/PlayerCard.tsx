@@ -1,33 +1,27 @@
+import React from "react";
 import { useUser } from "../../../utils/context/User";
-import { userMock } from "../../../utils/LocalDB/userMock";
+import GenericPlayerCard from "../../molecules/GenericPlayerCard/PlayerCard";
 import "./styles.scss";
-const PlayerCard = () => {
+import Props from "./types";
+
+const PlayerCard: React.FC<Props> = ({ handle }) => {
     const { selectedTeam } = useUser();
 
     function isEmptyObject(obj: object) {
         return Object.keys(obj).length === 0;
     }
 
-    userMock.players.valorant.length === 0 ||
+    /*userMock.players.valorant.length === 0 ||
     userMock.players.valorant.every(isEmptyObject)
         ? console.log("vuoto")
-        : console.log("non è vuoto");
+        : console.log("non è vuoto");*/
 
     return (
-        <div
-            className="custom-col"
-            style={{ flex: "1 1 20%", margin: "0 10px" }}
-        >
-            <div className="player-card_container">
-                <div
-                    className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
-                >
-                    <div className="player-card">
-                        <button className="btn-icon">
-                            <i className="fa-regular fa-circle-plus"></i>
-                        </button>
-                    </div>
-                </div>
+        <div className="player-card_container">
+            <div
+                className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
+            >
+                <GenericPlayerCard handle={handle} />
             </div>
         </div>
     );

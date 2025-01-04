@@ -1,27 +1,33 @@
+import { useState } from "react";
+import { useUser } from "../../../utils/context/User";
+import { userMock } from "../../../utils/LocalDB/userMock";
 import PlayerCard from "../PlayerCard/PlayerCard";
-
-interface Player {
-    id: number;
-    name: string;
-    position: string;
-}
+import "./styles.scss";
 
 const TeamGroup = () => {
-    const players: Player[] = [
-        { id: 1, name: "Player 1", position: "Top" },
-        { id: 2, name: "Player 2", position: "Jungle" },
-        { id: 3, name: "Player 3", position: "Mid" },
-        { id: 4, name: "Player 4", position: "ADC" },
-        { id: 5, name: "Player 5", position: "Support" },
-    ];
+    const [showPlayerModal, setShowPlayerModal] = useState(false);
+    const { selectedTeam } = useUser();
+
+    const players =
+        selectedTeam === "LoL"
+            ? userMock.players.lol
+            : userMock.players.valorant;
 
     return (
         <div
-            className="container d-flex justify-content-around bg-black"
+            className="team-group container d-flex justify-content-around bg-black"
             style={{ maxWidth: "80%" }}
         >
             {players.map((player) => (
-                <PlayerCard key={player.id} />
+                <div className="custom-col">
+                    <PlayerCard
+                        key={player.iD}
+                        handle={() => {
+                            setShowPlayerModal(showPlayerModal!);
+                            console.log(showPlayerModal);
+                        }}
+                    />
+                </div>
             ))}
         </div>
     );
