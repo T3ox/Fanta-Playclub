@@ -5,7 +5,7 @@ import {
     useMemo,
     useState,
 } from "react";
-import { userMock } from "../../LocalDB/userMock";
+import { Player, userMock } from "../../LocalDB/userMock";
 import Props from "../types";
 import UserContext from "./types";
 
@@ -15,6 +15,14 @@ const Context = createContext<UserContext>({
     changeSelectedTeam: () => {},
     addPlayerShowModal: () => {},
     showPlayerModal: false,
+    players: [
+        {
+            iD: 0,
+            riotID: "",
+            image: "",
+            cost: 0,
+        },
+    ],
 });
 
 // Crei un provider per condividere il context
@@ -22,6 +30,9 @@ export const UserProvider = ({ children }: Props) => {
     // Variabile impostata a LoL perchè sarà sempre la prima pagina che ti apre
     const [selectedTeam, setSelectedTeam] = useState("LoL");
     const [showPlayerModal, setShowPlayerModal] = useState(false);
+
+    // Mock dei Player
+    const [players, setPlayers] = useState<Player[]>(userMock.players.lol);
 
     // Metodo per cambiare il team selezionato
     const changeSelectedTeam = () => {
@@ -32,13 +43,16 @@ export const UserProvider = ({ children }: Props) => {
 
     const addPlayerShowModal = useCallback((iD: number) => {
         setShowPlayerModal((prev) => !prev);
-        if (iD !== -1) {
-            userMock.players.lol[iD - 1] = {
-                ...userMock.players.lol[iD - 1],
-                riotID: "Franco", // Cambia i dettagli desiderati
+
+        setPlayers((prevPlayers) => {
+            const updatedPlayers = [...prevPlayers];
+            updatedPlayers[iD - 1] = {
+                ...updatedPlayers[iD - 1],
+                riotID: "Franco",
+                cost: 2,
             };
-            console.log("Player aggiornato:", userMock.players.lol);
-        }
+            return updatedPlayers;
+        });
     }, []);
 
     // valori da passare all'esterno, quindi tutte le variabili e metodi usati
@@ -48,9 +62,10 @@ export const UserProvider = ({ children }: Props) => {
             changeSelectedTeam,
             addPlayerShowModal,
             showPlayerModal,
+            players,
         };
         return value;
-    }, [selectedTeam]);
+    }, [selectedTeam, showPlayerModal, players]);
 
     // Ritorni il Provider del context
     return (

@@ -3,7 +3,7 @@ import CircleAddButton from "../../atoms/CircleAddButton/CircleAddButton";
 import "./styles.scss";
 import Props from "./types";
 
-const GenericPlayerCard: React.FC<Props> = ({ playerId }) => {
+const EmptyPlayerCard: React.FC<Props> = ({ playerId }) => {
     const { addPlayerShowModal } = useUser();
     return (
         <div className="player-card d-flex align-items-center justify-content-center">
@@ -12,4 +12,4 @@ const GenericPlayerCard: React.FC<Props> = ({ playerId }) => {
     );
 };
 
-export default GenericPlayerCard;
+export default EmptyPlayerCard;

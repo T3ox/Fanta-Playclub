@@ -1,27 +1,35 @@
 import React from "react";
 import { useUser } from "../../../utils/context/User";
-import GenericPlayerCard from "../../molecules/GenericPlayerCard/GenericPlayerCard";
+import { Player } from "../../../utils/LocalDB/userMock";
+import EmptyPlayerCard from "../../molecules/EmptyPlayerCard/EmptyPlayerCard";
 import "./styles.scss";
 import Props from "./types";
 
 const PlayerCard: React.FC<Props> = ({ playerId }) => {
-    const { selectedTeam } = useUser();
+    const { selectedTeam, players } = useUser();
 
-    function isEmptyObject(obj: object) {
-        return Object.keys(obj).length === 0;
+    function isEmptyObject(player: Player) {
+        return player.riotID === "" && player.cost == 0 ? true : false;
     }
 
-    /*userMock.players.valorant.length === 0 ||
-    userMock.players.valorant.every(isEmptyObject)
-        ? console.log("vuoto")
-        : console.log("non è vuoto");*/
+    const emptyPlayerCard = () => {
+        if (selectedTeam === "LoL") {
+            return players.every(isEmptyObject) ? true : false;
+        } else {
+            return players.every(isEmptyObject) ? true : false;
+        }
+    };
 
     return (
         <div className="player-card_container">
             <div
                 className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
             >
-                <GenericPlayerCard playerId={playerId} />
+                {emptyPlayerCard() ? (
+                    <EmptyPlayerCard playerId={playerId} />
+                ) : (
+                    <h1>Godo</h1>
+                )}
             </div>
         </div>
     );
