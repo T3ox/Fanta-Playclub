@@ -1,0 +1,47 @@
+.sidebar {
+    background-color: #333333;
+    color: white;
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .sidebar h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-section {
+    margin-bottom: 20px;
+  }
+  
+  .filter-section label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .filter-section input[type="text"],
+  .filter-section select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .filter-section input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .filter-section input[type="range"] {
+    width: 90%;
+  }
+  
+  .price-label {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  

@@ -1,12 +1,20 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+const HomePage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (game: string) => {
+    navigate(`/players/${game}`);
+  };
+
   return (
-    <div>
-        <h1>
-            HOME
-        </h1>
+    <div className="home-page">
+      <h1>Seleziona il gioco</h1>
+      <button onClick={() => handleNavigate('lol')}>League of Legends</button>
+      <button onClick={() => handleNavigate('valorant')}>Valorant</button>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

@@ -1,20 +1,19 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "bootstrap/dist/js/bootstrap.min.js";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/pages/Home";
-import Layout from "./utils/Layout/Layout";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "../src/components/pages/Home";
+import PlayersPage from "./components/pages/PlayerPage";
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </Layout>
-        </BrowserRouter>
-    );
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/players/:game" element={<PlayersPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 };
 
 export default App;
