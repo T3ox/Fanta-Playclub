@@ -2,6 +2,7 @@ import {
     createContext,
     useCallback,
     useContext,
+    useEffect,
     useMemo,
     useState,
 } from "react";
@@ -15,14 +16,8 @@ const Context = createContext<UserContext>({
     changeSelectedTeam: () => {},
     addPlayerShowModal: () => {},
     showPlayerModal: false,
-    players: [
-        {
-            iD: 0,
-            riotID: "",
-            image: "",
-            cost: 0,
-        },
-    ],
+    players: [],
+    teamCost: 0,
 });
 
 // Crei un provider per condividere il context
@@ -30,15 +25,34 @@ export const UserProvider = ({ children }: Props) => {
     // Variabile impostata a LoL perchè sarà sempre la prima pagina che ti apre
     const [selectedTeam, setSelectedTeam] = useState("LoL");
     const [showPlayerModal, setShowPlayerModal] = useState(false);
+    const [teamCost, setTeamCost] = useState<number>(0);
 
+    // TODO DA CAMBIARE QUANDO SI AGGIUNGE UN VERO DB
     // Mock dei Player
     const [players, setPlayers] = useState<Player[]>(userMock.players.lol);
 
+    useEffect(() => {
+        let sum = 0;
+        players.map((player) => {
+            sum += player.cost;
+        });
+
+        setTeamCost(sum);
+    }, [players]);
+
     // Metodo per cambiare il team selezionato
     const changeSelectedTeam = () => {
-        setSelectedTeam((prevTeam) =>
-            prevTeam === "LoL" ? "Valorant" : "LoL",
-        );
+        setSelectedTeam((prevTeam) => {
+            if (prevTeam === "LoL") {
+                userMock.players.lol = players;
+                setPlayers(userMock.players.valorant);
+                return "Valorant";
+            } else {
+                userMock.players.valorant = players;
+                setPlayers(userMock.players.lol);
+                return "LoL";
+            }
+        });
     };
 
     const addPlayerShowModal = useCallback((iD: number) => {
@@ -48,8 +62,9 @@ export const UserProvider = ({ children }: Props) => {
             const updatedPlayers = [...prevPlayers];
             updatedPlayers[iD - 1] = {
                 ...updatedPlayers[iD - 1],
-                riotID: "Franco",
-                cost: 2,
+                riotID: "Teo#alone",
+                image: "",
+                cost: 1,
             };
             return updatedPlayers;
         });
@@ -63,9 +78,10 @@ export const UserProvider = ({ children }: Props) => {
             addPlayerShowModal,
             showPlayerModal,
             players,
+            teamCost,
         };
         return value;
-    }, [selectedTeam, showPlayerModal, players]);
+    }, [selectedTeam, showPlayerModal, players, teamCost]);
 
     // Ritorni il Provider del context
     return (

@@ -6,4 +6,5 @@ export default interface UserContext {
     addPlayerShowModal: (iD: number) => void;
     showPlayerModal: boolean;
     players: Player[];
+    teamCost: number;
 }

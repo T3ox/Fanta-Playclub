@@ -12,7 +12,7 @@ const TeamGroup = () => {
             : userMock.players.valorant;
 
     function isEmptyObject(player: Player) {
-        return player.riotID === "" && player.cost == 0 ? true : false;
+        return player.riotID !== "" && player.cost != 0 ? false : true;
     }
 
     const emptyPlayerCard = (player: Player) => {

@@ -5,7 +5,7 @@ export interface Player {
     cost: number;
 }
 
-interface Players {
+export interface Players {
     lol: Player[];
     valorant: Player[];
 }
