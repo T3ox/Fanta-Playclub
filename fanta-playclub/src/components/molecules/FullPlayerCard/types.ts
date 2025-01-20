@@ -1,3 +1,5 @@
+import { Player } from "../../../utils/LocalDB/userMock";
+
 export default interface Props {
-    playerId: number;
+    player: Player;
 }

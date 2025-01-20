@@ -21,13 +21,14 @@
 
             // Colore del bordo
             .lol {
-                background: #d4b66c;
+                background: $lol-gold-4;
 
                 .player-card {
-                    background-color: #0a1428; // Colore del banner
+                    background-color: $lol-blue-6; // Colore del banner
+                    color: white;
 
                     .btn {
-                        border-color: #d4b66c;
+                        border-color: $lol-gold-4;
 
                         &:active {
                             background: #060d1c; // Colore più scuro per il click
@@ -37,13 +38,13 @@
             }
 
             .valorant {
-                background: #ff4654;
+                background: $valorant-red-1;
 
                 .player-card {
-                    background-color: #0f1722; // Colore del banner
+                    background-color: $valorant-grey; // Colore del banner
 
                     .btn {
-                        border-color: #ff4654;
+                        border-color: $valorant-red-1;
 
                         &:active {
                             background: #0a1018; // Colore più scuro per il click

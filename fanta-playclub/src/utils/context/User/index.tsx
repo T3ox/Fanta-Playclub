@@ -63,8 +63,9 @@ export const UserProvider = ({ children }: Props) => {
             updatedPlayers[iD - 1] = {
                 ...updatedPlayers[iD - 1],
                 riotID: "Teo#alone",
-                image: "",
+                team: "Hub Voghera",
                 cost: 1,
+                role: "top laner",
             };
             return updatedPlayers;
         });
