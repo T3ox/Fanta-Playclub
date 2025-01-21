@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { useUser } from "../../../utils/context/User";
-import { roleImages } from "../../../utils/LocalDB/roleImages";
 import { Player } from "../../../utils/LocalDB/userMock";
 import EmptyPlayerCard from "../../molecules/EmptyPlayerCard/EmptyPlayerCard";
 import FullPlayerCard from "../../molecules/FullPlayerCard/FullPlayerCard";
@@ -8,14 +6,6 @@ import "./styles.scss";
 
 const TeamGroup = () => {
     const { selectedTeam, players } = useUser();
-
-    // roles images pre-load
-    useEffect(() => {
-        roleImages.forEach((url) => {
-            const img = new Image();
-            img.src = url;
-        });
-    });
 
     function isEmptyObject(player: Player) {
         return player.riotID !== "" && player.cost != 0 ? false : true;

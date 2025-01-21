@@ -5,13 +5,6 @@ import "./styles.scss";
 const TeamCost = () => {
     const { selectedTeam, players, teamCost } = useUser();
 
-    /*useEffect(() => {
-        let sum: number = 0;
-        players.map((player) => {
-            sum += player.cost;
-        });
-    }, []);*/
-
     // Dichiarazione useState per costo del proprio team, variabile per team scelto dal Context e costo massimo del team
     //const [teamCost, setTeamCost] = useState<number>(sumCosts());
     const TOTALTEAMCOST = 15;

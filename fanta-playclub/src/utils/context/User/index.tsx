@@ -6,6 +6,7 @@ import {
     useMemo,
     useState,
 } from "react";
+import { roleImages } from "../../LocalDB/roleImages";
 import { Player, userMock } from "../../LocalDB/userMock";
 import Props from "../types";
 import UserContext from "./types";
@@ -38,6 +39,12 @@ export const UserProvider = ({ children }: Props) => {
         });
 
         setTeamCost(sum);
+
+        // roles images pre-load
+        roleImages.forEach((url) => {
+            const img = new Image();
+            img.src = url;
+        });
     }, [players]);
 
     // Metodo per cambiare il team selezionato
