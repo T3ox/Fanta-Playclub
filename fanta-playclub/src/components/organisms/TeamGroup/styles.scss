@@ -24,8 +24,14 @@
                 background: $lol-gold-4;
 
                 .player-card {
-                    background-color: $lol-blue-6; // Colore del banner
-                    color: white;
+                    //background-color: $lol-blue-6; // Colore del banner
+
+                    background: radial-gradient(
+                        234.42% 84.65% at 74.23% 23.47%,
+                        #1e2835 0%,
+                        #111b2f 37%,
+                        #091428 96.5%
+                    );
 
                     .btn {
                         border-color: $lol-gold-4;

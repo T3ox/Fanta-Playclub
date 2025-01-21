@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useUser } from "../../../utils/context/User";
 import { roleImages } from "../../../utils/LocalDB/roleImages";
-import { Player, userMock } from "../../../utils/LocalDB/userMock";
+import { Player } from "../../../utils/LocalDB/userMock";
 import EmptyPlayerCard from "../../molecules/EmptyPlayerCard/EmptyPlayerCard";
 import FullPlayerCard from "../../molecules/FullPlayerCard/FullPlayerCard";
 import "./styles.scss";
@@ -16,11 +16,6 @@ const TeamGroup = () => {
             img.src = url;
         });
     });
-
-    const selectedPlayers =
-        selectedTeam === "LoL"
-            ? userMock.players.lol
-            : userMock.players.valorant;
 
     function isEmptyObject(player: Player) {
         return player.riotID !== "" && player.cost != 0 ? false : true;

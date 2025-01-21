@@ -1,31 +1,33 @@
 .player-card_filled {
     width: 67%;
-    height: 70%;
-    background: red;
-    font-size: 1.7rem;
+    height: 75%;
+    font-size: 1rem;
+    color: rgb(199, 199, 199);
+    position: relative;
 
-    .team-image-contaier {
-        background: purple;
-        width: 100%;
-        height: auto;
-        position: relative;
+    .player-card_text-container {
+        #riot-id {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #c5c7be;
+        }
 
-        #team-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: auto;
-            border-radius: 50%;
+        #team-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #797c7b;
         }
     }
 
-    #fullname {
-        font-size: 1rem;
+    #role-logo {
+        width: 45%;
     }
 
-    #role-logo {
-        width: 70%;
+    .modify-player {
+        position: absolute;
+        bottom: 15%;
+
+        //override card border-color
+        border-color: #0dcaf0 !important;
     }
 }

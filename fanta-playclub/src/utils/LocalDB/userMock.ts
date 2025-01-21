@@ -1,6 +1,5 @@
 export interface Player {
     iD: number;
-    fullName: string;
     riotID: string;
     cost: number;
     team: string;
@@ -27,15 +26,13 @@ export const userMock: UserMock = {
         lol: [
             {
                 iD: 1,
-                fullName: "Matteo Vattimo",
-                riotID: "Teo#alone",
+                riotID: "Leo#logio",
                 team: "Hub Voghera",
                 cost: 1,
-                role: "top laner",
+                role: "ad carry",
             },
             {
                 iD: 2,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -43,7 +40,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 3,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -51,7 +47,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 4,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -59,7 +54,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 5,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -69,15 +63,13 @@ export const userMock: UserMock = {
         valorant: [
             {
                 iD: 1,
-                fullName: "",
-                riotID: "",
-                cost: 0,
-                team: "",
-                role: "",
+                riotID: "Teo#alone",
+                cost: 2,
+                team: "Hub Voghera",
+                role: "controller",
             },
             {
                 iD: 2,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -85,7 +77,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 3,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -93,7 +84,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 4,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
@@ -101,7 +91,6 @@ export const userMock: UserMock = {
             },
             {
                 iD: 5,
-                fullName: "",
                 riotID: "",
                 cost: 0,
                 team: "",
