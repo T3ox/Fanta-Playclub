@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import NavLinksGroup from "../molecules/NavLinksGroup/NavLinksGroup";
 
 import CloseButton from "../../utils/icons/closeButton";
+import Button from "../atoms/Button/Button";
 import GameSwitcher from "../atoms/NavLink/GameSwitcher/GameSwitcher";
 import "./styles.scss";
 
@@ -39,9 +40,16 @@ const Navbar = () => {
                 >
                     <span className="navbar-toggler-icon" />
                 </button>
-                <div className={`collapse navbar-collapse`} id="navbarNav">
-                    <NavLinksGroup links={links} />
-                    <GameSwitcher />
+                <div className={`collapse navbar-collapse `} id="navbarNav">
+                    <NavLinksGroup className="" links={links} />
+                    <div className="navbar-right-group">
+                        <GameSwitcher />
+                        <Button
+                            text="Accedi/Registrati"
+                            className="btn btn-light mx-4"
+                            handle={() => {}}
+                        />
+                    </div>
                 </div>
             </nav>
             {show && (
@@ -68,7 +76,13 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className="offcanvas-body">
-                    <NavLinksGroup links={links} />
+                    <NavLinksGroup className="" links={links} />
+                    <GameSwitcher />
+                    <Button
+                        text="Accedi/Registrati"
+                        className="btn btn-light mx-4"
+                        handle={() => {}}
+                    />
                 </div>
             </div>
         </header>

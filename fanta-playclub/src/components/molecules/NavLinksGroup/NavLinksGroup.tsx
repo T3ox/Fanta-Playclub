@@ -1,8 +1,10 @@
 import NavLink from "../../atoms/NavLink/NavLink";
+import "./styles.scss";
 import Props from "./types";
-const NavLinksGroup: React.FC<Props> = ({ links }) => {
+
+const NavLinksGroup: React.FC<Props> = ({ links, className }) => {
     return (
-        <ul className="navbar-nav justify-content-start align-items-center fs-5 flex-grow-1 pe-3 ">
+        <ul className={`navbar-nav navbar-link ${className}`}>
             {links.map((link) => (
                 <NavLink text={link} />
             ))}

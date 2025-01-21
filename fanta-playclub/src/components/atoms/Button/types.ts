@@ -1,4 +1,5 @@
 export default interface Props {
-    links: string[];
+    text: string;
+    handle: () => void;
     className: string;
 }
