@@ -6,7 +6,7 @@ const NavLink: React.FC<Props> = ({ text }) => {
         <>
             <li className="nav-item mx-2">
                 <a className="nav-link" href="/menu">
-                    {text.toUpperCase()}
+                    {text}
                 </a>
             </li>
         </>

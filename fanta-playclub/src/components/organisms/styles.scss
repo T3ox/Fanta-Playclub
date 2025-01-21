@@ -17,6 +17,8 @@
     .offcanvas {
         color: white;
         background: $navbar-offcanvas-bg-color !important;
+        text-transform: uppercase;
+        font-weight: 700;
 
         .offcanvas-header {
             position: relative;
