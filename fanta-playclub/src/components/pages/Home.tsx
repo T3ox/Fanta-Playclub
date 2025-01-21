@@ -1,12 +1,9 @@
-
 const Home = () => {
-  return (
-    <div>
-        <h1>
-            HOME
-        </h1>
-    </div>
-  );
+    return (
+        <div style={{ height: "200svh", background: "white" }}>
+            <h1>HOME</h1>
+        </div>
+    );
 };
 
 export default Home;
