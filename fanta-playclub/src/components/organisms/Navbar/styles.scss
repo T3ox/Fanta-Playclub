@@ -1,0 +1,23 @@
+@import "../../../utils/variables";
+
+#navbar-header {
+    position: relative;
+    height: $navbar-height-lg;
+    z-index: 1000;
+
+    // Desktop browsers
+    .navbar {
+        width: 100%;
+        position: fixed;
+        //padding: 0 calc(1.5rem * 0.5);
+        padding: 0 10px;
+        z-index: 2;
+        height: $navbar-height-lg;
+        background: $navbar-bg-color !important;
+
+        .navbar-collapse {
+            position: relative;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import "../../../utils/variables";
+
+// Mobile browsers
+.offcanvas {
+    color: white;
+    background: $navbar-offcanvas-bg-color !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 100vw !important;
+
+    .offcanvas-header {
+        position: relative;
+        height: 80px;
+        border-bottom: 1px white solid;
+        padding: 15px;
+
+        .close-offcanvas {
+            background: transparent;
+            position: absolute;
+            right: 15px;
+        }
+    }
+
+    .offcanvas-body {
+        position: relative;
+        .offcanvas-body_other {
+            width: 100%;
+
+            .login-button {
+                width: 90%;
+            }
+
+            .game-switcher-container {
+                margin-top: 4rem;
+                width: 50%;
+
+                .selected-game {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+.offcanvas-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040; // Mettiti sotto l'offcanvas ma sopra il resto del contenuto
+}

@@ -1,18 +1,53 @@
-//variables
+// VARIABLES
 
-$vetrina-menu: #8aa940;
-$vetrina-lan: #7e1dc5;
-$vetrina-story: #926b37;
-$vetrina-story2: #7fb8c9;
-$vetrina-lanPC: #d0d3f5;
+$animationTime: 1.5s;
 
-//NAVBAR HEIGHTS
-$navbar-height-md: 60px;
-$navbar-height-lg: 9svh;
+// NAVBAR
+//$navbar-height-md: 60px;
+$navbar-height-lg: 8svh;
+$navbar-bg-color: #111;
+$navbar-offcanvas-bg-color: #1f1f1f;
 
-//BREAKPOINTS VARIABLES
+// BREAKPOINTS VARIABLES
 $sm: 575px;
 $md: 767px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+
+// BRANDBOOK
+// League of Legends
+
+// Blue
+$lol-blue-1: #cdfafa;
+$lol-blue-2: #0ac8b9;
+$lol-blue-3: #0397ab;
+$lol-blue-4: #005a82;
+$lol-blue-5: #0a323c;
+$lol-blue-6: #091428;
+$lol-blue-7: #0a1428;
+
+// Gold
+$lol-gold-1: #f0e6d2;
+$lol-gold-2: #c8aa6e;
+$lol-gold-3: #c8aa6e;
+$lol-gold-4: #c89b3c;
+$lol-gold-5: #785a28;
+$lol-gold-6: #463714;
+$lol-gold-7: #32281e;
+
+// Grey
+$lol-grey-1: #a09b8c;
+$lol-grey-1h: #5b5a56;
+$lol-grey-2: #3c3c41;
+$lol-grey-3: #1e2328;
+$lol-grey-cool: #1e282d;
+$lol-grey-hextech: #010a13;
+
+// Valorant
+$valorant-red-1: #fd4556;
+$valorant-red-2: #bd3944;
+$valorant-red-3: #53212b;
+$valorant-white: #fffbf5;
+$valorant-black: #000000;
+$valorant-grey: #0f1722;
