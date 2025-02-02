@@ -3,16 +3,33 @@ import PlayerCard from "../../atoms/PlayerCard/playerCard";
 import { Player } from "../../../utils/LocalDB/playerMock";
 import "./playerGrid.css";
 
-interface PlayerGridProps {
-  filteredPlayers: Player[];
+interface PlayersGridProps {
+  players: Player[];
+  search: string;
+  minValue: number; 
+  maxValue: number; 
+  roleFilter: string | null;
+  teamFilter: string | null;
 }
 
-const PlayerGrid: React.FC<PlayerGridProps> = ({ filteredPlayers }) => (
-  <div className="player-grid">
-    {filteredPlayers.map((player) => (
-      <PlayerCard key={player.iD} player={player} />
-    ))}
-  </div>
-);
+const PlayersGrid: React.FC<PlayersGridProps> = ({ players, search, minValue, maxValue, roleFilter, teamFilter }) => {
+  const filteredPlayers = players.filter(
+    (player) =>
+      player.nickname.toLowerCase().startsWith(search.toLowerCase()) &&
+      player.costo >= minValue && 
+      player.costo <= maxValue && 
+      (!roleFilter || player.ruolo === roleFilter) &&
+      (!teamFilter || player.salalan === teamFilter)
+  );
 
-export default PlayerGrid;
+  return (
+    <div className="containerPlayerGrid"> 
+
+      {filteredPlayers.map((player) => (
+        <PlayerCard key={player.iD} player={player} />
+      ))}
+    </div>
+  );
+};
+
+export default PlayersGrid;
