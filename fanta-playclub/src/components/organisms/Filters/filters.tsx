@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import FilterInputField from "../../atoms/FilterInputField/FilterInputField";
-import DoubleSlider from "../../atoms/FilterPriceSlider/FilterPriceSlider"; // Assicurati che il percorso sia corretto
 import ButtonGrid from "../../molecules/ButtonGrid/buttonGrid";
-import "./filters.css";
+import "./styles.scss";
 
 const FILTERSVALUES = {
     minimumCost: 1,
@@ -22,7 +21,8 @@ interface FiltersProps {
     setTeamFilter: (team: string | null) => void; // Updated to accept null
 }
 
-const Filters: React.FC<FiltersProps> = ({
+const Filters = () =>
+    /*{
     search,
     setSearch,
     minValue,
@@ -33,40 +33,60 @@ const Filters: React.FC<FiltersProps> = ({
     setRoleFilter,
     teamFilter,
     setTeamFilter,
-}) => {
-    const [sliderValue, setSliderValue] = useState([
-        FILTERSVALUES.minimumCost,
-        FILTERSVALUES.maximumCost,
-    ]);
-    return (
-        <div className="filters-section">
-            <FilterInputField
-                placeholder={"Cerca un nome"}
-                value={""}
-                title={"Nome"}
-            />
+}*/
+    {
+        const [sliderValue, setSliderValue] = useState([
+            FILTERSVALUES.minimumCost,
+            FILTERSVALUES.maximumCost,
+        ]);
 
-            <DoubleSlider
-                minValue={minValue}
-                maxValue={maxValue}
-                setMinValue={setMinValue}
-                setMaxValue={setMaxValue}
-                title="Prezzo"
-            />
+        const [selectedTeam, setSelectedTeam] = useState("LoL");
 
-            <h3>Filtro Ruolo</h3>
-            <ButtonGrid
-                labels={["Top Laner", "Jungler", "Mid Laner", "ADC", "Support"]}
-                onSelect={setRoleFilter}
-            />
+        const roles =
+            selectedTeam === "LoL"
+                ? ["Top Laner", "Jungler", "Mid Laner", "ADC", "Support"]
+                : ["Controller", "Duelist", "Initiator", "Sentinel"];
 
-            <h3>Filtro Squadra</h3>
-            <ButtonGrid
-                labels={["Pc1", "Pc2", "Pc3", "Pc4"]}
-                onSelect={setTeamFilter}
-            />
-        </div>
-    );
-};
+        const playClubs = [
+            "Another World Caserta",
+            "Esplace Genova",
+            "Gamever Napoli",
+            "Hub Voghera",
+            "Levelx55 Perugia",
+            "Lobby E-Games Bari",
+            "Parrot Sushi-Lan Roma",
+            "PLB World Milano",
+            "RedShift Gaming Messina",
+            "Rift Esports Club Catanzaro",
+            "Romagna Esports Club Cesena",
+            "SpaceGames Salerno",
+            "Spidibit Catania",
+            "Titan Gaming Center Milano",
+        ];
+
+        return (
+            <div className="filters-section d-flex flex-column">
+                <FilterInputField
+                    placeholder={"Cerca un nome"}
+                    value={""}
+                    title={"Nome"}
+                />
+
+                {/*<DoubleSlider
+                    minValue={minValue}
+                    maxValue={maxValue}
+                    setMinValue={setMinValue}
+                    setMaxValue={setMaxValue}
+                    title="Prezzo"
+                />*/}
+
+                <h3>Filtro Ruolo</h3>
+                <ButtonGrid labels={roles} onSelect={() => {}} />
+
+                <h3>Filtro Squadra</h3>
+                <ButtonGrid labels={playClubs} onSelect={() => {}} />
+            </div>
+        );
+    };
 
 export default Filters;
