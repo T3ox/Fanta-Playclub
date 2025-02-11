@@ -5,12 +5,8 @@ import TrueModal from "../organisms/TrueModal/TrueModal";
 import "./styles.scss";
 
 const HomePage: React.FC = () => {
-    const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
-    const playersList: Player[] = players.lol;
-
-    const showModal = true;
-
+    //const playersList: Player[] = players.lol;
     const [selectedTeam, setSelectedTeam] = useState("LoL");
 
     const roles =
@@ -34,6 +30,7 @@ const HomePage: React.FC = () => {
         "Spidibit Catania",
         "Titan Gaming Center Milano",
     ];
+
     return (
         <div className="home-page">
             <h1>Seleziona il gioco</h1>
@@ -54,7 +51,13 @@ const HomePage: React.FC = () => {
                 Launch demo modal
             </button>
 
-            {modalOpen ? <TrueModal showModal={modalOpen} /> : null}
+            {modalOpen ? (
+                <TrueModal
+                    handleClick={() => setModalOpen(false)}
+                    showModal={modalOpen}
+                />
+            ) : null}
+            {modalOpen && <div className="overlay-background"></div>}
         </div>
     );
 };

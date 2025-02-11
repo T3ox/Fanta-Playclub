@@ -1,33 +1,37 @@
-import Filters from "../Filters/Filters";
+import FiltersBar from "../FiltersBar/FiltersBar";
 import "./styles.scss";
 import Props from "./types";
 
-const TrueModal: React.FC<Props> = ({ showModal }) => {
+const TrueModal: React.FC<Props> = ({ handleClick, showModal }) => {
     return (
         <div
             className={`modal fade ${showModal ? "show" : " "}`}
-            id="exampleModal"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
             tabIndex={-1}
-            aria-labelledby="exampleModalLabel"
+            aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
         >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-xl modal-dialog-centered">
                 <div className="modal-content">
-                    <div className="modal-body">
-                        <Filters />
-                    </div>
-                    {/*<div className="modal-footer">
+                    <div className="modal-header border-bottom-0">
+                        <h5 className="modal-title" id="staticBackdroplabel">
+                            Cart
+                        </h5>
                         <button
-                            type="button"
-                            className="btn btn-secondary"
+                            className="btn-close"
                             data-bs-dismiss="modal"
-                        >
-                            Close
-                        </button>
-                        <button type="button" className="btn btn-primary">
-                            Save changes
-                        </button>
-                    </div>*/}
+                            aria-label="Close"
+                            onClick={handleClick}
+                        ></button>
+                    </div>
+                    <div className="modal-body d-flex">
+                        <div className="filters">
+                            <FiltersBar />
+                        </div>
+                        <div className="content">godo</div>
+                    </div>
                 </div>
             </div>
         </div>

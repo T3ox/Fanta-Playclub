@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { Player } from "../../../utils/LocalDB/playerMock";
-import Filters from "../Filters/Filters";
+import Filters from "../FiltersBar/FiltersBar";
 import "./styles.scss";
 
 Modal.setAppElement("#root");
@@ -43,9 +43,27 @@ const ChoosePlayerModal: React.FC<ChoosePlayerModalProps> = ({
                 tabIndex={-1}
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
-            ></div>
+            >
+                <div className="modal-dialog modal-lg modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header border-bottom-0">
+                            <h5
+                                className="modal-title"
+                                id="staticBackdroplabel"
+                            >
+                                Cart
+                            </h5>
+                            <div
+                                className="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <Modal
+            {/*<Modal
                 isOpen={isOpen}
                 onRequestClose={handleClose}
                 className="modal-content"
@@ -63,8 +81,8 @@ const ChoosePlayerModal: React.FC<ChoosePlayerModalProps> = ({
                 roleFilter={roleFilter}
                 teamFilter={teamFilter}
                 />
-                </div>*/}
-            </Modal>
+                </div>}
+            </Modal>*/}
         </>
     );
 };

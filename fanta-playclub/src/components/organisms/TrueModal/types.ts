@@ -1,3 +1,4 @@
 export default interface Props {
-    showModal: boolean;
+    showModal: boolean
+    handleClick: () => void;
 }

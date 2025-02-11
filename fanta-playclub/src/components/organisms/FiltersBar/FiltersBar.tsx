@@ -1,7 +1,8 @@
 import { useState } from "react";
-import FilterInputField from "../../atoms/FilterInputField/FilterInputField";
-import ButtonGrid from "../../molecules/ButtonGrid/buttonGrid";
+import CustomInputField from "../../atoms/CustomInputField/CustomInputField";
+import ButtonGrid from "../../molecules/FilterGrid/FilterGrid";
 import "./styles.scss";
+import FilterSection from "../../molecules/FilterSection/FilterSection";
 
 const FILTERSVALUES = {
     minimumCost: 1,
@@ -21,7 +22,7 @@ interface FiltersProps {
     setTeamFilter: (team: string | null) => void; // Updated to accept null
 }
 
-const Filters = () =>
+const FiltersBar = () =>
     /*{
     search,
     setSearch,
@@ -65,11 +66,12 @@ const Filters = () =>
         ];
 
         return (
-            <div className="filters-section d-flex flex-column">
-                <FilterInputField
-                    placeholder={"Cerca un nome"}
-                    value={""}
-                    title={"Nome"}
+            <div className="filters-bar d-flex flex-column">
+                <FilterSection
+                    label="Nome"
+                    children={
+                        <CustomInputField placeholder={"Cerca un nome"} />
+                    }
                 />
 
                 {/*<DoubleSlider
@@ -80,13 +82,19 @@ const Filters = () =>
                     title="Prezzo"
                 />*/}
 
-                <h3>Filtro Ruolo</h3>
-                <ButtonGrid labels={roles} onSelect={() => {}} />
+                <FilterSection
+                    label="Filtro Ruolo"
+                    children={<ButtonGrid labels={roles} onSelect={() => {}} />}
+                />
 
-                <h3>Filtro Squadra</h3>
-                <ButtonGrid labels={playClubs} onSelect={() => {}} />
+                <FilterSection
+                    label="Filtro Squadra"
+                    children={
+                        <ButtonGrid labels={playClubs} onSelect={() => {}} />
+                    }
+                />
             </div>
         );
     };
 
-export default Filters;
+export default FiltersBar;
