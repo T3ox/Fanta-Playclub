@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CustomInputField from "../../atoms/CustomInputField/CustomInputField";
-import ButtonGrid from "../../molecules/FilterGrid/FilterGrid";
+import FilterGrid from "../../molecules/FilterGrid/FilterGrid";
 import "./styles.scss";
 import FilterSection from "../../molecules/FilterSection/FilterSection";
 
@@ -45,7 +45,7 @@ const FiltersBar = () =>
 
         const roles =
             selectedTeam === "LoL"
-                ? ["Top Laner", "Jungler", "Mid Laner", "ADC", "Support"]
+                ? ["Top Laner", "Jungler", "Mid Laner", "AD Carry", "Support"]
                 : ["Controller", "Duelist", "Initiator", "Sentinel"];
 
         const playClubs = [
@@ -84,14 +84,12 @@ const FiltersBar = () =>
 
                 <FilterSection
                     label="Filtro Ruolo"
-                    children={<ButtonGrid labels={roles} onSelect={() => {}} />}
+                    children={<FilterGrid type="role" labels={roles} />}
                 />
 
                 <FilterSection
                     label="Filtro Squadra"
-                    children={
-                        <ButtonGrid labels={playClubs} onSelect={() => {}} />
-                    }
+                    children={<FilterGrid type="team" labels={playClubs} />}
                 />
             </div>
         );

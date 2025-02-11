@@ -24,6 +24,9 @@
                 padding-bottom: 0;
                 padding-left: 0;
                 padding-top: 0;
+                overflow: hidden;
+                max-height: 85svh;
+
                 ::-webkit-scrollbar {
                     display: none;
                 }
@@ -33,10 +36,12 @@
                     width: 25%;
                     border-radius: 0rem;
                     border-bottom-left-radius: 1rem;
+                    overflow: scroll;
                 }
 
                 .content {
                     width: 75%;
+                    overflow: scroll;
                 }
             }
         }

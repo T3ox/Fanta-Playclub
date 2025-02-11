@@ -1,6 +1,8 @@
 import FiltersBar from "../FiltersBar/FiltersBar";
+import PlayersGrid from "../PlayerGrid/playerGrid";
 import "./styles.scss";
 import Props from "./types";
+import { useModal } from "../../../utils/context/FiltersModal";
 
 const TrueModal: React.FC<Props> = ({ handleClick, showModal }) => {
     return (
@@ -30,7 +32,9 @@ const TrueModal: React.FC<Props> = ({ handleClick, showModal }) => {
                         <div className="filters">
                             <FiltersBar />
                         </div>
-                        <div className="content">godo</div>
+                        <div className="content">
+                            <PlayersGrid />
+                        </div>
                     </div>
                 </div>
             </div>

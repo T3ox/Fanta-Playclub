@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Player, players } from "../../utils/LocalDB/playerMock";
 import TrueModal from "../organisms/TrueModal/TrueModal";
 import "./styles.scss";
 
