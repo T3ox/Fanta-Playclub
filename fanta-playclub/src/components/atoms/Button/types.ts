@@ -1,4 +1,8 @@
-export default interface ButtonProps {
-    label: string;
-    onClick: () => void;
+import { ReactNode } from "react";
+
+export default interface Props {
+    text?: string;
+    handle: () => void;
+    className: string;
+    children?: ReactNode;
 }

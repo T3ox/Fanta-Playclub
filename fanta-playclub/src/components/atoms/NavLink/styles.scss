@@ -1,0 +1,18 @@
+.nav-item {
+    border-radius: 7px;
+    padding: 4px 16px;
+
+    .nav-link {
+        font-size: 1.2rem;
+        letter-spacing: 0.07em;
+        font-weight: 600;
+        line-height: 1.5;
+        height: 48px;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        background: rgb(49, 49, 49);
+        transition: color 1s cubic-bezier(0.06, 0.81, 0, 0.98);
+    }
+}
