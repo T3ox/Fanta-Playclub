@@ -1,7 +1,12 @@
 import React from "react";
 import { FilterProvider } from "./FiltersModal";
 import Props from "./types";
+import { UserProvider } from "./User";
 
 export const AppProvider = React.memo(({ children }: Props) => {
-    return <FilterProvider>{children}</FilterProvider>;
+    return (
+        <UserProvider>
+            <FilterProvider>{children}</FilterProvider>
+        </UserProvider>
+    );
 });

@@ -11,4 +11,10 @@
     width: 100%;
     backdrop-filter: brightness(50%);
     overflow: hidden;
+.team-page {
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    height: 100svh;
+    background-color: black;
 }

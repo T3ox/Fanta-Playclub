@@ -7,7 +7,6 @@ import "./App.css";
 import reportWebVitals from "./reportWebVitals";
 
 const rootElement = document.getElementById("root");
-console.log("Root element:", rootElement);
 
 if (!rootElement) {
     throw new Error("Elemento root non trovato! Controlla il file index.html.");
