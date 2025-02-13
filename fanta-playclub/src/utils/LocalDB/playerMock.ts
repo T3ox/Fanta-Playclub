@@ -1,12 +1,6 @@
-// DB di prova
-export interface Player {
-    iD: number;
-    riotID: string;
-    cost: number;
-    team: string;
-    role: string;
-}
+import { Player } from "./userMock";
 
+// DB di prova
 export interface Players {
     lol: Player[];
     valorant: Player[];

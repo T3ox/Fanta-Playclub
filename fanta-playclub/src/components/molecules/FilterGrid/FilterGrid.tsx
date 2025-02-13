@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./styles.scss";
-import GridButton from "../../atoms/GridButton/GridButton";
-import Props from "./types";
 import { useModal } from "../../../utils/context/FiltersModal";
+import GridButton from "../../atoms/GridButton/GridButton";
+import "./styles.scss";
+import Props from "./types";
 
 const FilterGrid: React.FC<Props> = ({ labels, type }) => {
     const { roleFilter, teamFilter, updateRoles, updateTeams } = useModal();
@@ -28,7 +28,7 @@ const FilterGrid: React.FC<Props> = ({ labels, type }) => {
         }
 
         setActiveButton(
-            updatedRole.includes(label) || updatedTeams.includes(label) ? label : null
+            updatedRole.includes(label) || updatedTeams.includes(label) ? label : null,
         );
     };
 
@@ -36,7 +36,7 @@ const FilterGrid: React.FC<Props> = ({ labels, type }) => {
     const updateFilters = (
         currentFilter: string[],
         updateFilter: (filter: string[]) => void,
-        label: string
+        label: string,
     ) => {
         const updatedFilter = currentFilter.includes(label)
             ? currentFilter.filter((item) => item !== label)

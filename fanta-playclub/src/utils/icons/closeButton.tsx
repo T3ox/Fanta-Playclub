@@ -11,14 +11,14 @@ const closeButton = () => {
             <path
                 d="M17 17L31 31"
                 stroke="white"
-                stroke-width="2"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinejoin="round"
             />
             <path
                 d="M31 17L17 31"
                 stroke="white"
-                stroke-width="2"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinejoin="round"
             />
         </svg>
     );

@@ -6,7 +6,6 @@ import Offcanvas from "../Offcanvas/Offcanvas";
 import "./styles.scss";
 
 const Navbar = () => {
-    //const links = ["Squadra", "Leaderboard"];
     const links = [
         {
             url: "/team",

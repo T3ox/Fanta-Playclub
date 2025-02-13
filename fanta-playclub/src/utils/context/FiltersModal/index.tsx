@@ -6,9 +6,10 @@ import {
     useMemo,
     useState,
 } from "react";
+import { players } from "../../LocalDB/playerMock";
+import { Player } from "../../LocalDB/userMock";
 import Props from "../types";
 import FilterContext from "./types";
-import { Player, players } from "../../LocalDB/playerMock";
 
 // Funzione per eseguire il filtro sui giocatori
 const filterPlayers = (
@@ -17,7 +18,7 @@ const filterPlayers = (
     minValue: number,
     maxValue: number,
     roleFilter: string[],
-    teamFilter: string[]
+    teamFilter: string[],
 ): Player[] => {
     return players.filter((player) => {
         const isMatchingSearch = player.riotID
@@ -72,7 +73,7 @@ export const FilterProvider = ({ children }: Props) => {
             minValue,
             maxValue,
             roleFilter,
-            teamFilter
+            teamFilter,
         );
         setFilteredPlayers(filtered);
 

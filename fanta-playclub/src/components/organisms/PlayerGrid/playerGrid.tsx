@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import PlayerCard from "../../atoms/PlayerCard/playerCard";
-import { Player } from "../../../utils/LocalDB/playerMock";
-import "./playerGrid.css";
 import { useModal } from "../../../utils/context/FiltersModal";
+import PlayerCard from "../../atoms/PlayerCard/playerCard";
+import "./playerGrid.css";
 
 interface PlayersGridProps {
     /*players: Player[];

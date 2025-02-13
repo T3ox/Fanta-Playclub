@@ -1,14 +1,14 @@
 export const lolRoleImageSetter = (role: string) => {
     switch (role) {
-        case "top laner":
+        case "Top Laner":
             return "/images/roles/lol/top-laner-icon.png";
-        case "jungler":
+        case "Jungler":
             return "/images/roles/lol/jungler-icon.png";
-        case "mid laner":
+        case "Mid Laner":
             return "/images/roles/lol/mid-laner-icon.png";
-        case "ad carry":
+        case "AD Carry":
             return "/images/roles/lol/adc-icon.png";
-        case "support":
+        case "Support":
             return "/images/roles/lol/support-icon.png";
         default:
             return "";

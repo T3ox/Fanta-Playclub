@@ -28,10 +28,7 @@ const FullPlayerCard: React.FC<Props> = ({ player }) => {
 
                 <img src={imageSetter} alt="role" id="role-logo" />
 
-                <button className="btn btn-outline-info modify-player">
-                    {" "}
-                    Modifca{" "}
-                </button>
+                <button className="btn btn-outline-info modify-player"> Modifca </button>
             </div>
         </div>
     );

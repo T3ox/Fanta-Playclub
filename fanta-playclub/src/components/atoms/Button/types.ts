@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 
 export default interface Props {
-    text?: string;
+    text: string;
     handle: () => void;
     className: string;
     children?: ReactNode;
+    isActive: boolean;
 }

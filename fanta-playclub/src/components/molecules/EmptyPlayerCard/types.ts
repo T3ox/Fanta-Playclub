@@ -1,3 +1,3 @@
 export default interface Props {
-    playerId: number;
+    handleClick: () => void;
 }

@@ -1,9 +1,12 @@
 import Props from "./types";
 
-const Button: React.FC<Props> = ({ text, handle, className, children }) => {
+const Button: React.FC<Props> = ({ text, handle, className, children, isActive }) => {
     return (
         <>
-            <button className={className} onClick={handle}>
+            <button
+                className={`${className} ${isActive ? "active" : ""}`}
+                onClick={handle}
+            >
                 {text}
                 {children}
             </button>

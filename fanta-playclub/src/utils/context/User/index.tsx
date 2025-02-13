@@ -16,8 +16,10 @@ const Context = createContext<UserContext>({
     selectedTeam: "",
     changeSelectedTeam: () => {},
     addPlayerShowModal: () => {},
+    openModal: () => {},
+    closeModal: () => {},
     showPlayerModal: false,
-    players: [],
+    team: [],
     teamCost: 0,
 });
 
@@ -27,14 +29,15 @@ export const UserProvider = ({ children }: Props) => {
     const [selectedTeam, setSelectedTeam] = useState("LoL");
     const [showPlayerModal, setShowPlayerModal] = useState(false);
     const [teamCost, setTeamCost] = useState<number>(0);
+    const [clickedItem, setClickedItem] = useState(0);
 
     // TODO DA CAMBIARE QUANDO SI AGGIUNGE UN VERO DB
     // Mock dei Player
-    const [players, setPlayers] = useState<Player[]>(userMock.players.lol);
+    const [team, setTeam] = useState<Player[]>(userMock.players.lol);
 
     useEffect(() => {
         let sum = 0;
-        players.map((player) => {
+        team.map((player) => {
             sum += player.cost;
         });
 
@@ -45,37 +48,50 @@ export const UserProvider = ({ children }: Props) => {
             const img = new Image();
             img.src = url;
         });
-    }, [players]);
+    }, [team]);
 
     // Metodo per cambiare il team selezionato
-    const changeSelectedTeam = () => {
+    const changeSelectedTeam = useCallback(() => {
         setSelectedTeam((prevTeam) => {
             if (prevTeam === "LoL") {
-                userMock.players.lol = players;
-                setPlayers(userMock.players.valorant);
+                userMock.players.lol = team;
+                setTeam(userMock.players.valorant);
                 return "Valorant";
             } else {
-                userMock.players.valorant = players;
-                setPlayers(userMock.players.lol);
+                userMock.players.valorant = team;
+                setTeam(userMock.players.lol);
                 return "LoL";
             }
         });
-    };
+    }, []);
 
-    const addPlayerShowModal = useCallback((iD: number) => {
-        setShowPlayerModal((prev) => !prev);
+    const addPlayerShowModal = useCallback(
+        (player: Player) => {
+            setTeam((prevPlayers) => {
+                const updatedPlayers = [...prevPlayers];
+                console.log("updatedPlayers:", [...prevPlayers]);
 
-        setPlayers((prevPlayers) => {
-            const updatedPlayers = [...prevPlayers];
-            updatedPlayers[iD - 1] = {
-                ...updatedPlayers[iD - 1],
-                riotID: "Teo#alone",
-                team: "Hub Voghera",
-                cost: 1,
-                role: "top laner",
-            };
-            return updatedPlayers;
-        });
+                updatedPlayers[clickedItem] = {
+                    ...updatedPlayers[clickedItem],
+                    riotID: player.riotID,
+                    team: player.team,
+                    cost: player.cost,
+                    role: player.role,
+                };
+                return updatedPlayers;
+            });
+        },
+        [clickedItem],
+    );
+
+    const openModal = useCallback((id: number) => {
+        console.log("Clicked item:", id);
+        setClickedItem(id);
+        setShowPlayerModal(true);
+    }, []);
+
+    const closeModal = useCallback(() => {
+        setShowPlayerModal(false);
     }, []);
 
     // valori da passare all'esterno, quindi tutte le variabili e metodi usati
@@ -85,16 +101,16 @@ export const UserProvider = ({ children }: Props) => {
             changeSelectedTeam,
             addPlayerShowModal,
             showPlayerModal,
-            players,
+            team,
             teamCost,
+            openModal,
+            closeModal,
         };
         return value;
-    }, [selectedTeam, showPlayerModal, players, teamCost]);
+    }, [selectedTeam, showPlayerModal, team, teamCost]);
 
     // Ritorni il Provider del context
-    return (
-        <Context.Provider value={MemorizedValue}>{children}</Context.Provider>
-    );
+    return <Context.Provider value={MemorizedValue}>{children}</Context.Provider>;
 };
 
 export const useUser = (): UserContext => useContext(Context);

@@ -1,6 +1,6 @@
 import React from "react";
-import  VetrinaTextProps  from "./types";
-import "./style.scss"
+import "./style.scss";
+import VetrinaTextProps from "./types";
 
 const VetrinaText: React.FC<VetrinaTextProps> = ({ text, description }) => {
     return (

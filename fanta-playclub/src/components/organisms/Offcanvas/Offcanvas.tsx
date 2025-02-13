@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CloseButton from "../../../utils/icons/closeButton";
 import Button from "../../atoms/Button/Button";
-import GameSwitcher from "../../atoms/NavLink/GameSwitcher/GameSwitcher";
+import GameSwitcher from "../../atoms/GameSwitcher/GameSwitcher";
 import NavLinksGroup from "../../molecules/NavLinksGroup/NavLinksGroup";
 import "./styles.scss";
 import Props from "./types";
@@ -38,12 +38,11 @@ const Offcanvas: React.FC<Props> = ({ show, handleClick, links }) => {
                         text="Accedi/Registrati"
                         className="btn btn-light login-button"
                         handle={() => {}}
+                        isActive={true}
                     />
                     <div className="game-switcher-container d-flex justify-content-between align-items-center">
                         <span className="selected-game">
-                            {teamSelected === "LoL"
-                                ? "League of Legends"
-                                : "Valorant"}
+                            {teamSelected === "LoL" ? "League of Legends" : "Valorant"}
                         </span>
                         <GameSwitcher />
                     </div>

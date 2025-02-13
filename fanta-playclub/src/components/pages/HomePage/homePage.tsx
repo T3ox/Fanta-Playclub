@@ -2,6 +2,7 @@ import React from "react";
 import { vetrina1, vetrina2, vetrina3 } from "../../../utils/vetrinaService";
 import Header from "../../organism/Header/header";
 import Vetrina from "../../organism/Vetrina/vetrina";
+import "./styles.scss"
 
 const bannerURL: string = require("../../../utils/Images/chillGuy.jpg");
 

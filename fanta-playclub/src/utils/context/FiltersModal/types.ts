@@ -1,4 +1,4 @@
-import { Player } from "../../LocalDB/playerMock";
+import { Player } from "../../LocalDB/userMock";
 
 export default interface FilterContext {
     allPlayers: Player[];
