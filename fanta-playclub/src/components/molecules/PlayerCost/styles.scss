@@ -1,0 +1,22 @@
+.team-image-contaier {
+    position: relative; // posizione per posizionare i figli
+    width: 80%;
+
+    .cost-container {
+        // posizione assoluta nel container
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        //dimensione badge
+        width: 30px;
+        height: 30px;
+    }
+
+    #team-logo {
+        top: 0px;
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+}

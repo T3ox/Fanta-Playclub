@@ -1,0 +1,11 @@
+@import "../../../utils/variables";
+
+.player-card {
+    position: absolute;
+    top: 1%;
+    left: 2.5%;
+    width: 95%;
+    height: 98%;
+    clip-path: polygon(0 0, 100% 0%, 100% 88%, 50% 100%, 0 88%);
+    transition: background-color $animationTime ease;
+}
