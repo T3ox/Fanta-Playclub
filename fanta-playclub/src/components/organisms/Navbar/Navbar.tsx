@@ -6,7 +6,17 @@ import Offcanvas from "../Offcanvas/Offcanvas";
 import "./styles.scss";
 
 const Navbar = () => {
-    const links = ["Squadra", "Leaderboard"];
+    //const links = ["Squadra", "Leaderboard"];
+    const links = [
+        {
+            url: "/team",
+            displayName: "Squadra",
+        },
+        {
+            url: "/leaderboard",
+            displayName: "Leaderboard",
+        },
+    ];
     const offcanvasElement = document.getElementById("offcanvasNavbar");
 
     const [show, setShow] = useState(false);
@@ -32,7 +42,7 @@ const Navbar = () => {
                 <a className="navbar-brand fs-4" href="/">
                     Home
                 </a>
-                
+
                 <button
                     className="navbar-toggler shadow-none border-0"
                     type="button"
@@ -40,7 +50,7 @@ const Navbar = () => {
                 >
                     <HamburgerMenu />
                 </button>
-                
+
                 <div className={`collapse navbar-collapse`} id="navbarNav">
                     <NavLinksGroup className="" links={links} />
 
@@ -48,9 +58,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            {show && (
-                <div className="offcanvas-overlay" onClick={handleClose}></div>
-            )}
+            {show && <div className="offcanvas-overlay" onClick={handleClose}></div>}
             <Offcanvas show={show} handleClick={handleClose} links={links} />
         </header>
     );

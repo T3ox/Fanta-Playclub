@@ -1,5 +1,5 @@
 export default interface Props {
     show: boolean;
     handleClick: () => void;
-    links: string[];
+    links: { url: string; displayName: string }[];
 }

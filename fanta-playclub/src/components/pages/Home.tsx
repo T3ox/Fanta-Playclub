@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import TrueModal from "../organisms/TrueModal/TrueModal";
 import "./styles.scss";
 

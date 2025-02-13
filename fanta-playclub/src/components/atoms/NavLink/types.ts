@@ -1,3 +1,4 @@
 export default interface Props {
-    text: string;
+    url: string;
+    displayName: string;
 }

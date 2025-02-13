@@ -3,7 +3,7 @@ import Props from "./types";
 const CircleAddButton: React.FC<Props> = ({ handleClick }) => {
     return (
         <button
-            className="wrapper"
+            className="wrapper2"
             onClick={(e) => {
                 const target = e.currentTarget as HTMLElement;
                 const id = parseInt(target.dataset.id || "0", 10); // Leggi l'ID dal dataset

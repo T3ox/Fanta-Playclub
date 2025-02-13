@@ -1,4 +1,4 @@
 export default interface Props {
-    links: string[];
+    links: { url: string; displayName: string }[];
     className: string;
 }

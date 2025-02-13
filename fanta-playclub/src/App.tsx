@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 //import Home from "./components/pages/Home";
-import HomePage from "../src/components/pages/Home";
+import HomePage from "../src/components/pages/HomePage/homePage";
 import TeamPage from "./components/pages/TeamPage";
 import Layout from "./utils/Layout/Layout";
 import { AppProvider } from "./utils/context";
