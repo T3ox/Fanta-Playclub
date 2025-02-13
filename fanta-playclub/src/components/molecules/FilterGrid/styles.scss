@@ -1,0 +1,9 @@
+@import "../../../utils/variables";
+
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    display: flex;
+    background: #b83a47;
+}

@@ -1,11 +1,7 @@
 // VARIABLES
 
 $animationTime: 1.5s;
-$vetrina-menu: #8aa940;
-$vetrina-lan: #7e1dc5;
-$vetrina-story: #926b37;
-$vetrina-story2: #7fb8c9;
-$vetrina-lanPC: #d0d3f5;
+$animationTime: 1.5s;
 
 //  NAVBAR
 //$navbar-height-md: 60px;
@@ -13,7 +9,11 @@ $navbar-height-lg: 8svh;
 $navbar-bg-color: #111;
 $navbar-offcanvas-bg-color: #1f1f1f;
 
-//  BREAKPOINTS VARIABLES
+// BREAKPOINTS VARIABLES
+$sm: 575px;
+$md: 767px;
+$lg: 992px;
+$xl: 1200px;
 $xxl: 1400px;
 
 // BRANDBOOK
@@ -52,14 +52,3 @@ $valorant-red-3: #53212b;
 $valorant-white: #fffbf5;
 $valorant-black: #000000;
 $valorant-grey: #0f1722;
-$xl: 1200px;
-$lg: 992px;
-$md: 767px;
-$sm: 575px;
-
-// OFFER TEXT SIZES
-$fs-default: 2rem;
-$fs-xlarge: 1.7rem;
-$fs-large: 1.5rem;
-$fs-medium: 1.3rem;
-$fs-small: 0.9rem;
