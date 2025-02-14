@@ -1,8 +1,23 @@
 import { useEffect, useState } from "react";
+import HamburgerMenu from "../../../utils/icons/HamburgerMenu";
+import NavbarRightContainer from "../../molecules/NavbarRightContainer/NavbarRightContainer";
+import NavLinksGroup from "../../molecules/NavLinksGroup/NavLinksGroup";
+import Offcanvas from "../Offcanvas/Offcanvas";
 import "./styles.scss";
 
 const Navbar = () => {
-    const whatsappUrl = `https://wa.me/+393519735045`;
+    const links = [
+        {
+            url: "/team",
+            displayName: "Squadra",
+        },
+        {
+            url: "/leaderboard",
+            displayName: "Leaderboard",
+        },
+    ];
+    const offcanvasElement = document.getElementById("offcanvasNavbar");
+
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
@@ -22,98 +37,28 @@ const Navbar = () => {
 
     return (
         <header id="navbar-header">
-            <nav className={`navbar navbar-expand-md navbar-dark bg-black`}>
+            <nav className={`navbar navbar-expand-md navbar-dark`}>
                 <a className="navbar-brand fs-4" href="/">
                     Home
                 </a>
+
                 <button
                     className="navbar-toggler shadow-none border-0"
                     type="button"
                     onClick={handleShow}
                 >
-                    <span className="navbar-toggler-icon" />
+                    <HamburgerMenu />
                 </button>
-                <div
-                    className={`collapse navbar-collapse`}
-                    //${show ? "show overflow-hidden" : "hiding"} to enable show, non so usarlo
-                    id="navbarNav"
-                >
-                    <ul className="navbar-nav justify-content-end align-items-center fs-5 flex-grow-1 pe-3 ">
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/menu">
-                                Menù
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/about">
-                                Chi Siamo
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/salaLAN">
-                                Sala
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a
-                                className="nav-link"
-                                href={whatsappUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Prenota
-                            </a>
-                        </li>
-                    </ul>
+
+                <div className={`collapse navbar-collapse`} id="navbarNav">
+                    <NavLinksGroup className="" links={links} />
+
+                    <NavbarRightContainer handleClick={handleShow} />
                 </div>
             </nav>
-            <div
-                className={`offcanvas offcanvas-end ${
-                    show ? "show overflow-hidden" : "hiding"
-                }`}
-                tabIndex={-1}
-                id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel"
-            >
-                <div className="offcanvas-header">
-                    <button
-                        type="button"
-                        className={`btn-close btn-close-white`}
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Close"
-                        onClick={handleClose}
-                    />
-                </div>
-                <div className="offcanvas-body text-white d-flex">
-                    <ul className="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/menu">
-                                Menu
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/about">
-                                Chi Siamo
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a className="nav-link" href="/salaLAN">
-                                Sala
-                            </a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a
-                                className="nav-link"
-                                href={whatsappUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Prenota
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+            {show && <div className="offcanvas-overlay" onClick={handleClose}></div>}
+            <Offcanvas show={show} handleClick={handleClose} links={links} />
         </header>
     );
 };

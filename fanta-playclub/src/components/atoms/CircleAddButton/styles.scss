@@ -1,11 +1,12 @@
-.wrapper {
+.circle-button-wrapper {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     position: relative;
     background: transparent;
+    border: none;
 
-    .btn {
+    .circle-button {
         width: 100%;
         height: 100%;
         position: relative;

@@ -3,7 +3,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 //import Home from "./components/pages/Home";
-import TeamPage from "./components/pages/TeamPage";
+import HomePage from "../src/components/pages/HomePage/homePage";
+import TeamPage from "./components/pages/TeamPage/TeamPage";
 import Layout from "./utils/Layout/Layout";
 import { AppProvider } from "./utils/context";
 
@@ -13,7 +14,8 @@ const App = () => {
             <AppProvider>
                 <Layout>
                     <Routes>
-                        <Route path="/" element={<TeamPage />} />
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/team" element={<TeamPage />} />
                     </Routes>
                 </Layout>
             </AppProvider>

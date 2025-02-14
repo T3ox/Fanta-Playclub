@@ -1,0 +1,109 @@
+@import "../../../utils/variables";
+
+.container-vetrina {
+    max-width: 90% !important;
+    font: sans-serif !important;
+
+    .row {
+        align-items: center;
+        padding: 60px 0;
+        flex-direction: row; // Imposta la direzione predefinita a row
+
+        .vetrina-container {
+            display: flex;
+            color: black;
+            height: 90%;
+        }
+
+        .text-container {
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+
+            &.fade-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .text {
+                font-size: 24px; 
+                font-weight: bold; 
+            }
+
+            .description {
+                font-size: 16px; 
+                margin-top: 10px; 
+            }
+        }
+
+        .image-container {
+            img {
+                max-width: 100%; 
+                height: auto; 
+            }
+        }
+    }
+
+    @media (max-width: $md) {
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        .row {
+            flex-direction: column; 
+            padding: 0 0 60px 0;
+
+            .image-container {
+                align-items: center;
+                margin-top: 20px; 
+            }
+        }
+    }
+}
+
+#menu {
+    background-color: $vetrina-menu;
+}
+
+#lan {
+    background-color: $vetrina-lan;
+
+    .container-vetrina {
+        .row {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+#story {
+    background-color: $vetrina-story;
+}
+
+#story2 {
+    background-color: $vetrina-story2;
+
+    .container-vetrina {
+        .row {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+#lanPC {
+    background-color: $vetrina-lanPC;
+
+    #link-menu {
+        height: 300px;
+        width: 600px;
+
+        #img-menu {
+            height: 100%;
+            width: 80%;
+        }
+
+        @media (max-width: $md) {
+            padding-top: 35px;
+        }
+    }
+}

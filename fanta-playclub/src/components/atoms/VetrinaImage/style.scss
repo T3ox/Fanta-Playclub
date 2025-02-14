@@ -1,0 +1,12 @@
+@import "../../../utils/variables";
+
+#img-vetrina {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    border: 2px solid black;
+
+    @media (max-width: $md) {
+        width: 100%;
+    }
+}

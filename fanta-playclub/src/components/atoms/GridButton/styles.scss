@@ -1,0 +1,16 @@
+@import "../../../utils/variables";
+
+.grid-button {
+    border: 3px solid #0ca699;
+    width: fit-content;
+    white-space: nowrap;
+    color: $lol-blue-2;
+
+    &:hover {
+        background: $lol-blue-2;
+    }
+}
+
+.active {
+    background: $lol-blue-2 !important;
+}

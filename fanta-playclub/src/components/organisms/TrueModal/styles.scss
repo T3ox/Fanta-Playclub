@@ -1,0 +1,49 @@
+@import "../../../utils/variables";
+
+.show {
+    display: block !important;
+
+    .modal-dialog {
+        max-width: 70% !important;
+        overflow: hidden;
+        color: whitesmoke;
+
+        .modal-content {
+            background: $lol-grey-2 !important;
+            border-radius: 1rem;
+
+            .modal-header {
+                background: $lol-grey-3;
+                border-bottom: 1px solid whitesmoke !important;
+                .btn-close {
+                    filter: invert(1);
+                }
+            }
+
+            .modal-body {
+                padding-bottom: 0;
+                padding-left: 0;
+                padding-top: 0;
+                overflow: hidden;
+                max-height: 85svh;
+
+                ::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .filters {
+                    background: $lol-grey-3 !important;
+                    width: 25%;
+                    border-radius: 0rem;
+                    border-bottom-left-radius: 1rem;
+                    overflow: scroll;
+                }
+
+                .content {
+                    width: 75%;
+                    overflow: scroll;
+                }
+            }
+        }
+    }
+}

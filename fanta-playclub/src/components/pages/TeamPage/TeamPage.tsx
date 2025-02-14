@@ -1,6 +1,6 @@
 // import circlePlus from "../../utils/circlePlus.svg";
-import TeamCost from "../molecules/TeamCost/TeamCost";
-import TeamGroup from "../organisms/TeamGroup/TeamGroup";
+import TeamCost from "../../molecules/TeamCost/TeamCost";
+import TeamGroup from "../../organisms/TeamGroup/TeamGroup";
 import "./styles.scss";
 
 const TeamPage = () => {
