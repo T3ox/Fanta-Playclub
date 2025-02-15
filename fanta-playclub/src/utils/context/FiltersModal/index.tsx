@@ -17,24 +17,17 @@ const filterPlayers = (
     search: string,
     minValue: number,
     maxValue: number,
-    roleFilter: string[],
-    teamFilter: string[],
-): Player[] => {
-    return players.filter((player) => {
-        const isMatchingSearch = player.riotID
-            .toLowerCase()
-            .includes(search.toLowerCase());
-        const isWithinCostRange = player.cost >= minValue && player.cost <= maxValue;
-        const isMatchingRole =
-            roleFilter.length === 0 || roleFilter.includes(player.role);
-        const isMatchingTeam =
-            teamFilter.length === 0 || teamFilter.includes(player.team);
+    roles: string[],
+    teams: string[],
+): Player[] => 
+    players.filter(({ riotID, cost, role, team }) =>
+        riotID.toLowerCase().includes(search.toLowerCase()) &&
+        cost >= minValue && cost <= maxValue &&
+        (roles.length === 0 || roles.includes(role)) &&
+        (teams.length === 0 || teams.includes(team))
+    );
 
-        return isMatchingSearch && isWithinCostRange && isMatchingRole && isMatchingTeam;
-    });
-};
-
-// Crei un context per racchiudere i dati condivisi
+// Context per racchiudere i dati condivisi
 const Context = createContext<FilterContext>({
     allPlayers: [],
     filteredPlayers: [],
@@ -52,40 +45,25 @@ const Context = createContext<FilterContext>({
 
 // Crei un provider per condividere il context
 export const FilterProvider = ({ children }: Props) => {
-    const FILTERSVALUES = {
-        minimumCost: 1,
-        maximumCost: 5,
-    };
-
+    const COSTSFILTERS = { min: 1, max: 5 };
     const [allPlayers] = useState<Player[]>(players.lol);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>(players.lol);
     const [search, setSearch] = useState("");
-    const [minValue, setMinValue] = useState(FILTERSVALUES.minimumCost);
-    const [maxValue, setMaxValue] = useState(FILTERSVALUES.maximumCost);
+    const [minValue, setMinValue] = useState(COSTSFILTERS.min);
+    const [maxValue, setMaxValue] = useState(COSTSFILTERS.max);
     const [roleFilter, setRoleFilter] = useState<string[]>([]);
     const [teamFilter, setTeamFilter] = useState<string[]>([]);
 
     // Funzione per aggiornare i giocatori filtrati
     const updatePlayers = useCallback(() => {
-        const filtered = filterPlayers(
+        setFilteredPlayers(filterPlayers(
             allPlayers,
             search,
             minValue,
             maxValue,
             roleFilter,
             teamFilter,
-        );
-        setFilteredPlayers(filtered);
-
-        /*const filtered = allPlayers.filter(
-            (player) =>
-                player.riotID.toLowerCase().includes(search.toLowerCase()) &&
-                player.cost >= minValue &&
-                player.cost <= maxValue
-            //&&
-            //(!roleFilter || player.role === roleFilter) &&
-            //(!teamFilter || player.team === teamFilter)
-        );*/
+        ));
     }, [allPlayers, search, minValue, maxValue, roleFilter, teamFilter]);
 
     // Esegui il filtro ogni volta che cambiano i filtri
@@ -93,12 +71,8 @@ export const FilterProvider = ({ children }: Props) => {
         updatePlayers();
     }, [updatePlayers]);
 
-    const updateRoles = useCallback((role: string[]) => {
-        setRoleFilter(role);
-    }, []);
-    const updateTeams = useCallback((team: string[]) => {
-        setTeamFilter(team);
-    }, []);
+    const updateRoles = useCallback((roles: string[]) => setRoleFilter(roles), []);
+    const updateTeams = useCallback((teams: string[]) => setTeamFilter(teams), []);
 
     // valori da passare all'esterno, quindi tutte le variabili e metodi usati
     const MemorizedValue = useMemo(() => {

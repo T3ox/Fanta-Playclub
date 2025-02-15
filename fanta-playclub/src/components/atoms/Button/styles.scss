@@ -1,3 +1,6 @@
+@import "../../../utils/variables";
+
+// CIRCLE ADD BUTTON
 .circle-button-wrapper {
     width: 60px;
     height: 60px;
@@ -33,4 +36,20 @@
             height: 2.5px;
         }
     }
+}
+
+// FILTER BUTTON
+.grid-button {
+    border: 3px solid #0ca699;
+    width: fit-content;
+    white-space: nowrap;
+    color: $lol-blue-2;
+
+    &:hover {
+        background: $lol-blue-2;
+    }
+}
+
+.active {
+    background: $lol-blue-2 !important;
 }

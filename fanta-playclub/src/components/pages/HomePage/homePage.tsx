@@ -1,10 +1,8 @@
 import React from "react";
-import { vetrina1, vetrina2, vetrina3 } from "../../../utils/vetrinaService";
 import Header from "../../organism/Header/header";
 import Vetrina from "../../organism/Vetrina/vetrina";
 import "./styles.scss"
-
-const bannerURL: string = require("../../../utils/Images/chillGuy.jpg");
+import { homePageContents } from "../../../utils/LocalDB/homePageContents";
 
 const Home: React.FC = () => {
     return (
@@ -12,12 +10,11 @@ const Home: React.FC = () => {
             <Header
                 height="60svh"
                 heightLg="100svh"
-                image={bannerURL}
-                content={<h1>HomePage</h1>}
+                image="/images/chillGuy.jpg"
             />
-            <Vetrina type="vetrina1" {...vetrina1} />
-            <Vetrina type="vetrina2" {...vetrina2} />
-            <Vetrina type="vetrina3" {...vetrina3} />
+            {homePageContents.map((vetrinaContent, index)=>(
+                <Vetrina type="" text={vetrinaContent.title} description={vetrinaContent.content} image={vetrinaContent.img} />
+            ))}
         </>
     );
 };

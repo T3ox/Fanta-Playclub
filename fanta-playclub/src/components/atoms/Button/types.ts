@@ -5,5 +5,5 @@ export default interface Props {
     handle: () => void;
     className: string;
     children?: ReactNode;
-    isActive: boolean;
+    isActive?: boolean;
 }

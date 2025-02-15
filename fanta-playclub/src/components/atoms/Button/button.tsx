@@ -1,12 +1,10 @@
 import Props from "./types";
+import "./styles.scss"
 
-const Button: React.FC<Props> = ({ text, handle, className, children, isActive }) => {
+const Button: React.FC<Props> = ({ text, handle, className, children }) => {
     return (
         <>
-            <button
-                className={`${className} ${isActive ? "active" : ""}`}
-                onClick={handle}
-            >
+            <button className={className} onClick={handle}>
                 {text}
                 {children}
             </button>

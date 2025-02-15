@@ -2,9 +2,11 @@ import React from "react";
 import { useUser } from "../../../utils/context/User";
 import "./playerCard.scss";
 import Props from "./types";
+import { useModal } from "../../../utils/context/FiltersModal";
 
 const PlayerCard: React.FC<Props> = ({ player }) => {
     const { addPlayerShowModal, closeModal } = useUser();
+    const { updateRoles, updateTeams } = useModal();
 
     return (
         <div
@@ -12,6 +14,9 @@ const PlayerCard: React.FC<Props> = ({ player }) => {
             onClick={() => {
                 addPlayerShowModal(player);
                 closeModal();
+                updateRoles([])
+                updateTeams([])
+                
             }}
         >
             <img src={""} alt="" />

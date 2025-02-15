@@ -29,7 +29,7 @@ export const userMock: UserMock = {
                 riotID: "Leo#logio",
                 team: "Hub Voghera",
                 cost: 1,
-                role: "ad carry",
+                role: "AD Carry",
             },
             {
                 iD: 2,

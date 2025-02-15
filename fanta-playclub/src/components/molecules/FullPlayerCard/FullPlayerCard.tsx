@@ -9,7 +9,6 @@ import Props from "./types";
 
 const FullPlayerCard: React.FC<Props> = ({ player }) => {
     const { selectedTeam } = useUser();
-
     const imageSetter: string =
         selectedTeam === "LoL"
             ? lolRoleImageSetter(player.role)
@@ -26,9 +25,12 @@ const FullPlayerCard: React.FC<Props> = ({ player }) => {
                     <span id="team-name">{player.team}</span>
                 </div>
 
-                <img src={imageSetter} alt="role" id="role-logo" />
-
-                <button className="btn btn-outline-info modify-player"> Modifca </button>
+                <>
+                    <img src={imageSetter} alt="role" id="role-logo" />
+                </>
+                <>
+                    <button className="btn btn-outline-info modify-player"> Modifca </button>
+                </>
             </div>
         </div>
     );
