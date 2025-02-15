@@ -1,4 +1,5 @@
 import Props from "./types";
+import "./styles.scss"
 
 const Button: React.FC<Props> = ({ text, handle, className, children }) => {
     return (
