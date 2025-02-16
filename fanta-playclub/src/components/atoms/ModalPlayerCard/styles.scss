@@ -1,0 +1,46 @@
+@import "../../../utils/variables";
+
+.modal-player-card {
+    background-color: $lol-grey-3;
+    height: 200px;
+    width: 300px;
+    overflow: hidden;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    .modal-player-card_player-name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .player-card_team {
+        width: 40%;
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    }
+
+    .player-card-general {
+        width: 70%;
+    }
+
+    p {
+        font-size: 14px;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .points {
+        font-size: 16px;
+        color: red;
+        font-weight: bold;
+    }
+    .player-card-general {
+    }
+}

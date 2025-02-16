@@ -114,5 +114,13 @@ export const players: Players = {
             role: "Support",
         },
     ],
-    valorant: [],
+    valorant: [
+        {
+            iD: 16,
+            riotID: "NT Intense #elf",
+            cost: 1,
+            team: "Hub Voghera", // Aggiornato
+            role: "Sentinel",
+        },
+    ],
 };

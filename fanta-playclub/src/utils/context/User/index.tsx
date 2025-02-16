@@ -50,6 +50,10 @@ export const UserProvider = ({ children }: Props) => {
         });
     }, [team]);
 
+    useEffect(() => {
+        console.log("Il valore di teamCost è cambiato:", teamCost);
+    }, [teamCost]);
+
     // Metodo per cambiare il team selezionato
     const changeSelectedTeam = useCallback(() => {
         setSelectedTeam((prevTeam) => {
@@ -69,7 +73,6 @@ export const UserProvider = ({ children }: Props) => {
         (player: Player) => {
             setTeam((prevPlayers) => {
                 const updatedPlayers = [...prevPlayers];
-                console.log("updatedPlayers:", [...prevPlayers]);
 
                 updatedPlayers[clickedItem] = {
                     ...updatedPlayers[clickedItem],
@@ -85,7 +88,6 @@ export const UserProvider = ({ children }: Props) => {
     );
 
     const openModal = useCallback((id: number) => {
-        console.log("Clicked item:", id);
         setClickedItem(id);
         setShowPlayerModal(true);
     }, []);

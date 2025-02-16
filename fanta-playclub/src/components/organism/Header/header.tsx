@@ -1,5 +1,5 @@
-import  HeaderProps  from "./types";
 import "./style.scss";
+import HeaderProps from "./types";
 
 interface CustomCSSProperties extends React.CSSProperties {
     "--height"?: string;
@@ -14,11 +14,7 @@ const Header: React.FC<HeaderProps> = ({ height, heightLg, image }) => {
 
     return (
         <header className="header" style={customStyles}>
-            <img
-                src={image}
-                alt="Banner"
-                className="banner-img"
-            />
+            <img src={image} alt="Banner" className="banner-img" />
         </header>
     );
 };

@@ -2,7 +2,6 @@ import FiltersBar from "../FiltersBar/FiltersBar";
 import PlayersGrid from "../PlayerGrid/playerGrid";
 import "./styles.scss";
 import Props from "./types";
-import { useModal } from "../../../utils/context/FiltersModal";
 
 const TrueModal: React.FC<Props> = ({ handleClick, showModal }) => {
     return (
