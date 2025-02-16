@@ -1,5 +1,5 @@
 import React from "react";
-import { vetrina1, vetrina2, vetrina3 } from "../../../utils/vetrinaService";
+import { vetrina1, vetrina2, vetrina3 } from "../../../utils/vetrinaLocalDB";
 import Vetrina from "../../organism/Vetrina/vetrina";
 import Header from "../../organism/Header/header";
 import Footer from "../../organism/Footer/footer";

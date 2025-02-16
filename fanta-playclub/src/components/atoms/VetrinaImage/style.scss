@@ -1,12 +1,29 @@
 @import "../../../utils/variables";
 
-#img-vetrina {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    border: 2px solid black;
+.d-flex{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
 
-    @media (max-width: $md) {
+    #img-vetrina {
         width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+        border: 2px solid black;
+    
+        @media (max-width: $md) {
+            max-height: 50vh;
+        }
+        
+        @media (max-width: $xl) {
+            max-height: 60vh;
+          }
     }
 }

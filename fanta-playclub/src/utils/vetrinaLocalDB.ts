@@ -7,7 +7,7 @@ export default interface VetrinaData {
 export const vetrina1: VetrinaData = {
     text: "Quisque faucibus",
     description: "Sed imperdiet molestie quam, sed auctor libero maximus at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In posuere accumsan dui,",
-    image: require("../utils/Images/chillGuy.jpg")
+    image: require("../utils/Images/1d62a3751be9d7abfce84da8ca89be7d79f07fed-1232x1232.jpg")
 };
 
 export const vetrina2: VetrinaData = {
