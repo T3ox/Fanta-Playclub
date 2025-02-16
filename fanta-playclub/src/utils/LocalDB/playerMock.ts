@@ -10,108 +10,108 @@ export const players: Players = {
     lol: [
         {
             iD: 1,
-            riotID: "ShadowFox",
-            cost: 3,
-            team: "Hub Voghera", // Aggiornato
-            role: "Top Laner",
+            riotID: "Faker#GOAT",
+            cost: 5,
+            team: "Titan Gaming Center Milano",
+            role: "Mid Laner",
         },
         {
             iD: 2,
-            riotID: "BlueStorm",
-            cost: 5,
-            team: "Levelx55 Perugia", // Aggiornato
-            role: "Jungler",
+            riotID: "Caps#KING",
+            cost: 4,
+            team: "RedShift Gaming Messina",
+            role: "Mid Laner",
         },
         {
             iD: 3,
-            riotID: "InfernoFox",
-            cost: 2,
-            team: "Parrot Sushi-Lan Roma", // Aggiornato
+            riotID: "Chovy#ACE",
+            cost: 5,
+            team: "SpaceGames Salerno",
             role: "Mid Laner",
         },
         {
             iD: 4,
-            riotID: "FrostByte",
-            cost: 4,
-            team: "RedShift Gaming Messina", // Aggiornato
-            role: "AD Carry",
+            riotID: "Oner#WOLF",
+            cost: 3,
+            team: "Hub Voghera",
+            role: "Jungler",
         },
         {
             iD: 5,
-            riotID: "CrimsonBlade",
-            cost: 1,
-            team: "SpaceGames Salerno",
-            role: "Support",
-        }, // Aggiornato
+            riotID: "Ruler#WIN",
+            cost: 5,
+            team: "Parrot Sushi-Lan Roma",
+            role: "AD Carry",
+        },
         {
             iD: 6,
-            riotID: "PhantomClaw",
-            cost: 3,
-            team: "Titan Gaming Center Milano", // Aggiornato
-            role: "Top Laner",
+            riotID: "Zeka#PRO",
+            cost: 2,
+            team: "Levelx55 Perugia",
+            role: "Mid Laner",
         },
         {
             iD: 7,
-            riotID: "VenomStrike",
-            cost: 2,
-            team: "Hub Voghera", // Aggiornato
+            riotID: "Canyon#GOD",
+            cost: 4,
+            team: "Titan Gaming Center Milano",
             role: "Jungler",
         },
         {
             iD: 8,
-            riotID: "DarkNebula",
-            cost: 5,
-            team: "Levelx55 Perugia", // Aggiornato
-            role: "Mid Laner",
+            riotID: "Deft#EZ4",
+            cost: 3,
+            team: "RedShift Gaming Messina",
+            role: "AD Carry",
         },
         {
             iD: 9,
-            riotID: "StormCaller",
-            cost: 4,
-            team: "Parrot Sushi-Lan Roma", // Aggiornato
-            role: "AD Carry",
+            riotID: "Kerios#SUP",
+            cost: 2,
+            team: "SpaceGames Salerno",
+            role: "Support",
         },
         {
             iD: 10,
-            riotID: "SkyBreaker",
-            cost: 2,
-            team: "RedShift Gaming Messina", // Aggiornato
-            role: "Support",
+            riotID: "ShowMaker#CLUT",
+            cost: 5,
+            team: "Hub Voghera",
+            role: "Mid  Laner",
         },
         {
             iD: 11,
-            riotID: "NightFury",
-            cost: 5,
-            team: "SpaceGames Salerno", // Aggiornato
-            role: "Top Laner",
-        },
-        {
-            iD: 12,
-            riotID: "SolarWind",
-            cost: 1,
-            team: "Titan Gaming Center Milano", // Aggiornato
-            role: "Jungler",
-        },
-        {
-            iD: 13,
-            riotID: "ThunderFist",
-            cost: 3,
-            team: "Hub Voghera", // Aggiornato
+            riotID: "Knight#STAR",
+            cost: 4,
+            team: "Parrot Sushi-Lan Roma",
             role: "Mid Laner",
         },
         {
-            iD: 14,
-            riotID: "IronTusk",
-            cost: 2,
+            iD: 12,
+            riotID: "JackeyLove#FURY",
+            cost: 3,
             team: "Levelx55 Perugia",
             role: "AD Carry",
-        }, // Aggiornato
+        },
+        {
+            iD: 13,
+            riotID: "Tarzan#SMIT",
+            cost: 2,
+            team: "Titan Gaming Center Milano",
+            role: "Jungler",
+        },
+        {
+            iD: 14,
+            riotID: "BeryL#SUPR",
+            cost: 1,
+            team: "RedShift Gaming Messina",
+            role: "Support",
+        },
         {
             iD: 15,
-            riotID: "VoidHunter",
-            cost: 4,
-            team: "Parrot Sushi-Lan Roma", // Aggiornato
-            role: "Support",
+            riotID: "369#TANK",
+            cost: 1,
+            team: "SpaceGames Salerno",
+            role: "Top Laner",
         },
     ],
     valorant: [

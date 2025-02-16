@@ -3,21 +3,19 @@
 .modal-player-card {
     background-color: $lol-grey-3;
     height: 200px;
-    width: 300px;
+    width: 340px;
     overflow: hidden;
     padding: 15px;
+    margin: 1%;
     border-radius: 10px;
     text-align: center;
+    font-size: 14px;
     cursor: pointer;
 
-    .modal-player-card_player-name {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
     .player-card_team {
-        width: 40%;
+        width: 50%;
+        color: #a5a5a5;
+
         img {
             width: 80px;
             height: 80px;
@@ -27,20 +25,27 @@
     }
 
     .player-card-general {
-        width: 70%;
-    }
+        .modal-player-card_player-name {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-    p {
-        font-size: 14px;
-        color: #555;
-        margin: 5px 0;
-    }
+        img {
+            height: 45px;
+        }
 
-    .points {
-        font-size: 16px;
-        color: red;
-        font-weight: bold;
-    }
-    .player-card-general {
+        .player-cost {
+            .points {
+                font-size: 16px;
+                color: $lol-gold-2;
+                margin: 5px 10px;
+                font-weight: bold;
+            }
+
+            img {
+                height: 20px;
+            }
+        }
     }
 }
