@@ -33,6 +33,8 @@
                         #091428 96.5%
                     );
 
+                    transition: background $animationTime ease;
+
                     .btn {
                         border-color: $lol-gold-4;
 
@@ -47,7 +49,9 @@
                 background: $valorant-red-1;
 
                 .player-card {
-                    background-color: $valorant-grey; // Colore del banner
+                    background: $valorant-grey; // Colore del banner
+
+                    transition: background $animationTime ease;
 
                     .btn {
                         border-color: $valorant-red-1;

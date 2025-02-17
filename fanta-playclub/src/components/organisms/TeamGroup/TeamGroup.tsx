@@ -36,7 +36,6 @@ const TeamGroup = () => {
                         >
                             {emptyPlayerCard(player) ? (
                                 <>
-                                    {index}
                                     <EmptyPlayerCard
                                         handleClick={() => openModal(index)}
                                     />

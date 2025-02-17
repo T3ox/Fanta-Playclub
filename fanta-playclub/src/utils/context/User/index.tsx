@@ -27,7 +27,7 @@ const Context = createContext<UserContext>({
 export const UserProvider = ({ children }: Props) => {
     // Variabile impostata a LoL perchè sarà sempre la prima pagina che ti apre
     const [selectedTeam, setSelectedTeam] = useState("LoL");
-    const [showPlayerModal, setShowPlayerModal] = useState(true);
+    const [showPlayerModal, setShowPlayerModal] = useState(false);
     const [teamCost, setTeamCost] = useState<number>(0);
     const [clickedItem, setClickedItem] = useState(0);
 
