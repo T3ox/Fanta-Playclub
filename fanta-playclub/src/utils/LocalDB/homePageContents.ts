@@ -1,5 +1,6 @@
     export const homePageContents = [
         {
+          "type": "vetrina1",
           "title": "Cos'è un Riot Play Club",
           "content": "Avete sempre desiderato un ritrovo per incontrare altri giocatori? Ecco l’attività che fa per voi!" +
             "Riot Play Club offrono a tutti i fan dei giochi di casa Riot un’opportunità per incontrarsi dal vivo," +
@@ -10,9 +11,10 @@
             "Gli eventi sono ospitati in luoghi pubblici, come negozi di giochi o sale LAN e sono gestiti da" +
             "organizzatori ufficiali in collaborazione con Riot Games. Ad oggi Riot conteggia ben 16 play club" +
             "sparsi, guarda nella mappa sottostante il play club più vicino a te.",
-            "img": "/images/chillGuy.jpg"
+            "img": "/images/1d62a3751be9d7abfce84da8ca89be7d79f07fed-1232x1232.jpg"
         },
         {
+          "type": "vetrina2",
           "title": "Idea del progetto fanta play club",
           "content": "Abbiamo deciso di creare questo sito in quanto non partecipanti ufficiali del Torneo Tormenta," +
             "ma dato che volevamo divertirci anche noi un po' abbiamo pensato al Fanta Play Club." +
@@ -38,6 +40,7 @@
 
         },
         {
+          "type": "vetrina3",
           "title": "Idea del progetto fanta play club e come funziona",
           "content": "Il Fanta Playclub nasce dal desiderio di portare il divertimento e la competizione del Circuito Tormenta" +
             "a tutti, anche a chi non partecipa ufficialmente al torneo. Come appassionati di League of Legends" +
