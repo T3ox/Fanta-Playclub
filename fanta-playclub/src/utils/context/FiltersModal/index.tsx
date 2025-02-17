@@ -30,7 +30,8 @@ const filterPlayers = (
             (roles.length === 0 || roles.includes(role)) &&
             (teams.length === 0 || teams.includes(team)) &&
             cost + teamCost <= 15,
-    );
+    )
+    .sort((a, b) => a.riotID.localeCompare(b.riotID));
 };
 // Context per racchiudere i dati condivisi
 const Context = createContext<FilterContext>({

@@ -19,9 +19,11 @@ const ModalPlayerCard: React.FC<Props> = ({ player }) => {
         const rest = words.join(" ");
 
         return (
-            <>
-                {rest} <br /> {lastWord}
-            </>
+            <div className="sala-lan-container">
+                <span className="sala-lan mb-2">{rest}</span>
+                <br/>
+                <span className="città">{lastWord}</span>
+            </div>
         );
     };
 
@@ -40,12 +42,12 @@ const ModalPlayerCard: React.FC<Props> = ({ player }) => {
                 updateTeams([]);
             }}
         >
-            <div className="modal-player-card_player-info d-flex justify-content-center">
-                <div className="player-card_team d-flex align-items-center flex-column">
+            <div className="modal-player-card_player-info d-flex justify-content-between">
+                <div className="player-card_team d-flex align-items-center justify-content-start flex-column">
                     <div className="player-card_team-image">
                         <img src={teamImageSetter(player.team)} alt="team" />
                     </div>
-                    <span>{playClubName(player.team)}</span>
+                    {playClubName(player.team)}
                 </div>
                 <div className="player-card-general d-flex align-items-center flex-column">
                     <div className="d-flex justify-content-center align-items-center player-cost">

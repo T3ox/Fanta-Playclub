@@ -4,7 +4,8 @@
     display: block !important;
 
     .modal-dialog {
-        max-width: 80% !important;
+        max-width: 90vw !important;
+        margin: auto;
         overflow: hidden;
         color: whitesmoke;
 
@@ -31,14 +32,15 @@
 
                 .filters {
                     background: $lol-grey-3 !important;
-                    width: 25%;
+                    //width: 25%;
+                    width: 20%;
                     border-radius: 0rem;
                     border-bottom-left-radius: 1rem;
                     overflow: scroll;
                 }
 
                 .content {
-                    width: 75%;
+                    width: 80%;
                     overflow: scroll;
                 }
             }

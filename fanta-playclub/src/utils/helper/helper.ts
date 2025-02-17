@@ -38,7 +38,7 @@ export const teamImageSetter = (team: string) => {
             return "";
         case "Gamever Napoli":
             return "";
-        case "Hub Voghera":
+        case "Hub Good Food & Gaming Zone Voghera":
             return "/images/hub-voghera.jpg";
         case "Levelx55 Perugia":
             return "/images/levelx55-perugia.jpeg";

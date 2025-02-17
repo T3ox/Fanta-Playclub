@@ -33,7 +33,7 @@ export const players: Players = {
             iD: 4,
             riotID: "Oner#WOLF",
             cost: 3,
-            team: "Hub Voghera",
+            team: "Hub Good Food & Gaming Zone Voghera",
             role: "Jungler",
         },
         {
@@ -75,8 +75,8 @@ export const players: Players = {
             iD: 10,
             riotID: "ShowMaker#CLUT",
             cost: 5,
-            team: "Hub Voghera",
-            role: "Mid  Laner",
+            team: "Hub Good Food & Gaming Zone Voghera",
+            role: "Mid Laner",
         },
         {
             iD: 11,
@@ -113,13 +113,41 @@ export const players: Players = {
             team: "SpaceGames Salerno",
             role: "Top Laner",
         },
+        {
+            iD: 16,
+            riotID: "OTP Gandosds#EUW",
+            cost: 1,
+            team: "Hub Good Food & Gaming Zone Voghera",
+            role: "Support",
+        },
+        {
+            iD: 17,
+            riotID: "Ziggler#EUW",
+            cost: 4,
+            team: "Hub Good Food & Gaming Zone Voghera",
+            role: "Top Laner",
+        },
+        {
+            iD: 18,
+            riotID: "Reinegat#EUW",
+            cost: 3,
+            team: "Hub Good Food & Gaming Zone Voghera",
+            role: "Mid Laner",
+        },
+        {
+            iD: 19,
+            riotID: "OTP Von Kiprus#EUW",
+            cost: 3,
+            team: "Hub Good Food & Gaming Zone Voghera",
+            role: "Support",
+        },
     ],
     valorant: [
         {
             iD: 16,
             riotID: "NT Intense #elf",
             cost: 1,
-            team: "Hub Voghera", // Aggiornato
+            team: "Hub Good Food & Gaming Zone Voghera", // Aggiornato
             role: "Sentinel",
         },
     ],
