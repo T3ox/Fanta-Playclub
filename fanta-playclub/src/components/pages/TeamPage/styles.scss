@@ -1,7 +1,9 @@
+@import "../../../utils/variables";
+
 .team-page {
     position: relative;
     top: 0;
     overflow: hidden;
-    height: 100svh;
+    height: calc(100svh - $navbar-height-lg);
     background-color: black;
 }

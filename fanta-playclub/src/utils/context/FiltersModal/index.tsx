@@ -9,6 +9,7 @@ import {
 import { players } from "../../LocalDB/playerMock";
 import { Player } from "../../LocalDB/userMock";
 import Props from "../types";
+import { useUser } from "../User";
 import FilterContext from "./types";
 
 // Funzione per eseguire il filtro sui giocatori
@@ -19,14 +20,18 @@ const filterPlayers = (
     maxValue: number,
     roles: string[],
     teams: string[],
-): Player[] => 
-    players.filter(({ riotID, cost, role, team }) =>
-        riotID.toLowerCase().includes(search.toLowerCase()) &&
-        cost >= minValue && cost <= maxValue &&
-        (roles.length === 0 || roles.includes(role)) &&
-        (teams.length === 0 || teams.includes(team))
+    teamCost: number,
+): Player[] => {
+    return players.filter(
+        ({ riotID, cost, role, team }) =>
+            riotID.toLowerCase().includes(search.toLowerCase()) &&
+            cost >= minValue &&
+            cost <= maxValue &&
+            (roles.length === 0 || roles.includes(role)) &&
+            (teams.length === 0 || teams.includes(team)) &&
+            cost + teamCost <= 15,
     );
-
+};
 // Context per racchiudere i dati condivisi
 const Context = createContext<FilterContext>({
     allPlayers: [],
@@ -45,26 +50,34 @@ const Context = createContext<FilterContext>({
 
 // Crei un provider per condividere il context
 export const FilterProvider = ({ children }: Props) => {
+    const { teamCost, selectedTeam } = useUser();
     const COSTSFILTERS = { min: 1, max: 5 };
     const [allPlayers] = useState<Player[]>(players.lol);
-    const [filteredPlayers, setFilteredPlayers] = useState<Player[]>(players.lol);
+    const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
     const [search, setSearch] = useState("");
     const [minValue, setMinValue] = useState(COSTSFILTERS.min);
     const [maxValue, setMaxValue] = useState(COSTSFILTERS.max);
     const [roleFilter, setRoleFilter] = useState<string[]>([]);
     const [teamFilter, setTeamFilter] = useState<string[]>([]);
 
+    useEffect(() => {
+        setFilteredPlayers(selectedTeam === "LoL" ? players.lol : players.valorant);
+    }, []);
+
     // Funzione per aggiornare i giocatori filtrati
     const updatePlayers = useCallback(() => {
-        setFilteredPlayers(filterPlayers(
-            allPlayers,
-            search,
-            minValue,
-            maxValue,
-            roleFilter,
-            teamFilter,
-        ));
-    }, [allPlayers, search, minValue, maxValue, roleFilter, teamFilter]);
+        setFilteredPlayers(
+            filterPlayers(
+                allPlayers,
+                search,
+                minValue,
+                maxValue,
+                roleFilter,
+                teamFilter,
+                teamCost,
+            ),
+        );
+    }, [allPlayers, search, minValue, maxValue, roleFilter, teamFilter, teamCost]);
 
     // Esegui il filtro ogni volta che cambiano i filtri
     useEffect(() => {

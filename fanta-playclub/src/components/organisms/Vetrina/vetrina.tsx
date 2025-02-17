@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react";
 import VetrinaImage from "../../atoms/VetrinaImage/vetrinaImage";
 import VetrinaText from "../../molecules/VetrinaText/vetrinaText";
 import  VetrinaProps  from "./types";
-import "./style.scss";
+import "./style.scss"
 
 const Vetrina: React.FC<VetrinaProps> = ({ type, text, description, image }) => {
-    console.log("Image source:", image); 
     const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -18,7 +17,6 @@ const Vetrina: React.FC<VetrinaProps> = ({ type, text, description, image }) => 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    // Se l'elemento è visibile, attiva l'effetto di fade in
                     textRef.current?.classList.add("fade-in");
                 }
             });

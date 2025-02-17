@@ -7,7 +7,7 @@
     .row {
         align-items: center;
         padding: 60px 0;
-        flex-direction: row; // Imposta la direzione predefinita a row
+        flex-direction: row; 
 
         .vetrina-container {
             display: flex;
@@ -62,12 +62,12 @@
     }
 }
 
-#menu {
-    background-color: $vetrina-menu;
+#vetrina1 {
+    background-color: $vetrina-1;
 }
 
-#lan {
-    background-color: $vetrina-lan;
+#vetrina2 {
+    background-color: $vetrina-2;
 
     .container-vetrina {
         .row {
@@ -76,34 +76,6 @@
     }
 }
 
-#story {
-    background-color: $vetrina-story;
-}
-
-#story2 {
-    background-color: $vetrina-story2;
-
-    .container-vetrina {
-        .row {
-            flex-direction: row-reverse;
-        }
-    }
-}
-
-#lanPC {
-    background-color: $vetrina-lanPC;
-
-    #link-menu {
-        height: 300px;
-        width: 600px;
-
-        #img-menu {
-            height: 100%;
-            width: 80%;
-        }
-
-        @media (max-width: $md) {
-            padding-top: 35px;
-        }
-    }
+#vetrina3 {
+    background-color: $vetrina-3;
 }
