@@ -10,6 +10,7 @@ import { roleImages } from "../../LocalDB/roleImages";
 import { Player, userMock } from "../../LocalDB/userMock";
 import Props from "../types";
 import UserContext from "./types";
+import { useModal } from "../FiltersModal";
 
 // Crei un context per racchiudere i dati condivisi
 const Context = createContext<UserContext>({
@@ -35,9 +36,10 @@ export const UserProvider = ({ children }: Props) => {
     // Mock dei Player
     const [team, setTeam] = useState<Player[]>(userMock.players.lol);
 
+
     useEffect(() => {
         let sum = 0;
-        team.map((player) => {
+        team.forEach((player) => {
             sum += player.cost;
         });
 
@@ -67,7 +69,7 @@ export const UserProvider = ({ children }: Props) => {
                 return "LoL";
             }
         });
-    }, []);
+    }, [team]);
 
     const addPlayerShowModal = useCallback(
         (player: Player) => {
@@ -109,7 +111,7 @@ export const UserProvider = ({ children }: Props) => {
             closeModal,
         };
         return value;
-    }, [selectedTeam, showPlayerModal, team, teamCost]);
+    }, [addPlayerShowModal, changeSelectedTeam, closeModal, openModal, selectedTeam, showPlayerModal, team, teamCost]);
 
     // Ritorni il Provider del context
     return <Context.Provider value={MemorizedValue}>{children}</Context.Provider>;

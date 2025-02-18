@@ -6,8 +6,7 @@ import {
     useMemo,
     useState,
 } from "react";
-import { players } from "../../LocalDB/playerMock";
-import { Player } from "../../LocalDB/userMock";
+import { Player } from "../../../API/APIData";
 import Props from "../types";
 import { useUser } from "../User";
 import FilterContext from "./types";
@@ -51,7 +50,7 @@ const Context = createContext<FilterContext>({
 
 // Crei un provider per condividere il context
 export const FilterProvider = ({ children }: Props) => {
-    const { teamCost, selectedTeam } = useUser();
+    const { teamCost, selectedTeam, showPlayerModal, team} = useUser();
     const COSTSFILTERS = { min: 1, max: 5 };
     const [allPlayers, setAllPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
@@ -61,19 +60,19 @@ export const FilterProvider = ({ children }: Props) => {
     const [roleFilter, setRoleFilter] = useState<string[]>([]);
     const [teamFilter, setTeamFilter] = useState<string[]>([]);
 
-    useEffect(() => {
-        setFilteredPlayers(selectedTeam === "LoL" ? players.lol : players.valorant);
-    }, [selectedTeam]);
 
     useEffect(()=> {
         const fetchPlayers = async () => {
             const data: Player[] = await getPlayers()
-            setAllPlayers(data)
+            // Player filtrati per gioco e senza giocatori già scelti
+            const filteredByGame = data
+            .filter(player => player.game === selectedTeam)
+            .filter(player => !team.some(({ riotID }) => riotID === player.riotID));
+            setAllPlayers(filteredByGame)
         }
 
         fetchPlayers();
-
-    }, []) 
+    }, [selectedTeam, team]) 
 
 
     // Funzione per aggiornare i giocatori filtrati
@@ -96,6 +95,12 @@ export const FilterProvider = ({ children }: Props) => {
         updatePlayers();
     }, [updatePlayers]);
 
+    useEffect(()=> {
+        if (showPlayerModal === false) {
+            setSearch("")
+        }
+    }, [showPlayerModal])
+
     const updateRoles = useCallback((roles: string[]) => setRoleFilter(roles), []);
     const updateTeams = useCallback((teams: string[]) => setTeamFilter(teams), []);
 
@@ -115,17 +120,7 @@ export const FilterProvider = ({ children }: Props) => {
             updateTeams,
         };
         return value;
-    }, [
-        setAllPlayers,
-        filteredPlayers,
-        maxValue,
-        minValue,
-        roleFilter,
-        search,
-        teamFilter,
-        updateRoles,
-        updateTeams,
-    ]);
+    }, [filteredPlayers, maxValue, minValue, roleFilter, search, teamFilter, updateRoles, updateTeams]);
 
     // Ritorni il Provider del context
     return <Context.Provider value={MemorizedValue}>{children}</Context.Provider>;

@@ -12,11 +12,10 @@ const TeamGroup = () => {
         showPlayerModal,
         openModal,
         closeModal,
-        addPlayerShowModal,
     } = useUser();
 
     function isEmptyObject(player: Player) {
-        return player.riotID !== "" && player.cost != 0 ? false : true;
+        return player.riotID !== "" && player.cost !== 0 ? false : true;
     }
 
     const emptyPlayerCard = (player: Player) => {

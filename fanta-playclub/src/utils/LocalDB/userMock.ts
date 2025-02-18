@@ -26,10 +26,10 @@ export const userMock: UserMock = {
         lol: [
             {
                 iD: 1,
-                riotID: "Leo#logio",
-                team: "Hub Good Food & Gaming Zone Voghera",
-                cost: 1,
-                role: "Jungler",
+                riotID: "",
+                team: "",
+                cost: 0,
+                role: "",
             },
             {
                 iD: 2,
@@ -63,10 +63,10 @@ export const userMock: UserMock = {
         valorant: [
             {
                 iD: 1,
-                riotID: "Teo#alone",
-                cost: 2,
-                team: "Hub Voghera",
-                role: "controller",
+                riotID: "",
+                cost: 0,
+                team: "",
+                role: "",
             },
             {
                 iD: 2,

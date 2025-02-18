@@ -17,13 +17,13 @@ export const lolRoleImageSetter = (role: string) => {
 
 export const valorantRoleImageSetter = (role: string) => {
     switch (role) {
-        case "controller":
+        case "Controller":
             return "/images/roles/valorant/controller-logo.jpg";
-        case "duelist":
+        case "Duelist":
             return "/images/roles/valorant/duelist-logo.jpg";
-        case "initiator":
+        case "Initiator":
             return "/images/roles/valorant/initiator-logo.jpg";
-        case "sentinel":
+        case "Sentinel":
             return "/images/roles/valorant/sentinel-logo.jpg";
         default:
             return "";

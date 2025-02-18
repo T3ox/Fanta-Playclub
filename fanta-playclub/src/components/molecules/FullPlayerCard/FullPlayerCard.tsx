@@ -4,6 +4,7 @@ import {
     valorantRoleImageSetter,
 } from "../../../utils/helper/helper";
 import { teamImageSetter } from "../../../utils/helper/helper";
+import Button from "../../atoms/Button/Button";
 import PlayerCost from "../PlayerCost/PlayerCost";
 import "./styles.scss";
 import Props from "./types";
@@ -18,13 +19,13 @@ const FullPlayerCard: React.FC<Props> = ({ player }) => {
     const riotIDMinify = (riotID: string) => {
         const isSingleWord = !riotID.includes(" "); 
 
-    if (!isSingleWord || riotID.length <= 14) {
-        return (
-            <div id="riot-id">
-                <span>{riotID}</span>
-            </div>
-        );
-    }
+        if (!isSingleWord || riotID.length <= 14) {
+            return (
+                <div id="riot-id">
+                    <span>{riotID}</span>
+                </div>
+            );
+        }
 
         const words = riotID.split("#");
         const lastWord = words.pop();
@@ -60,7 +61,7 @@ const FullPlayerCard: React.FC<Props> = ({ player }) => {
                     <img src={imageSetter} alt="role" id="role-logo" />
                 </>
                 <div className="player-card_modify">
-                    <button className="btn btn-outline-info"> Modifca </button>
+                    <Button className="btn btn-outline-info" text="Modifica" handle={()=>{}}/>
                 </div>
             </div>
         </div>
