@@ -26,7 +26,6 @@ const TeamGroup = () => {
     return (
         <div
             className="team-group container d-flex justify-content-around bg-black"
-            style={{ maxWidth: "80%" }}
         >
             {team.map((player, index) => (
                 <div className="custom-col" key={index}>

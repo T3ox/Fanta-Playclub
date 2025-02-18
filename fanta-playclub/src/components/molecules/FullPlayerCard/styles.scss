@@ -5,29 +5,47 @@
     color: rgb(199, 199, 199);
     position: relative;
 
+    .player-card_team-image-container {
+        position: relative; // posizione per posizionare i figli
+
+        #team-logo {
+            top: 0px;
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+    }
+
     .player-card_text-container {
+        height: 20%;
+        overflow: hidden;
+
         #riot-id {
-            font-size: 1.7rem;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: #c5c7be;
         }
 
         #team-name {
-            font-size: 1.05rem;
+            font-size: clamp(8px, 12px, 14px);
             font-weight: 600;
             color: #797c7b;
+            
         }
     }
 
     #role-logo {
-        width: 45%;
+        height: 15%;
     }
 
-    .modify-player {
-        position: absolute;
-        bottom: 15%;
+    .player-card_modify {
+        //position: absolute;
+        //bottom: 10%;
+        height: 10%;
 
         //override card border-color
-        border-color: #0dcaf0 !important;
+        .btn {
+            border-color: #0dcaf0 !important;
+        }
     }
 }

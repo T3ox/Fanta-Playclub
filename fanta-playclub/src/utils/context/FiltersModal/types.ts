@@ -1,7 +1,6 @@
 import { Player } from "../../LocalDB/userMock";
 
 export default interface FilterContext {
-    allPlayers: Player[];
     filteredPlayers: Player[];
     search: string;
     setSearch: (value: string) => void;

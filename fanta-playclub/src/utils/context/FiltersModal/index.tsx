@@ -11,6 +11,7 @@ import { Player } from "../../LocalDB/userMock";
 import Props from "../types";
 import { useUser } from "../User";
 import FilterContext from "./types";
+import getPlayers from "../../../API/getPlayers";
 
 // Funzione per eseguire il filtro sui giocatori
 const filterPlayers = (
@@ -35,7 +36,6 @@ const filterPlayers = (
 };
 // Context per racchiudere i dati condivisi
 const Context = createContext<FilterContext>({
-    allPlayers: [],
     filteredPlayers: [],
     search: "",
     setSearch: () => {},
@@ -53,7 +53,7 @@ const Context = createContext<FilterContext>({
 export const FilterProvider = ({ children }: Props) => {
     const { teamCost, selectedTeam } = useUser();
     const COSTSFILTERS = { min: 1, max: 5 };
-    const [allPlayers] = useState<Player[]>(players.lol);
+    const [allPlayers, setAllPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
     const [search, setSearch] = useState("");
     const [minValue, setMinValue] = useState(COSTSFILTERS.min);
@@ -63,7 +63,18 @@ export const FilterProvider = ({ children }: Props) => {
 
     useEffect(() => {
         setFilteredPlayers(selectedTeam === "LoL" ? players.lol : players.valorant);
-    }, []);
+    }, [selectedTeam]);
+
+    useEffect(()=> {
+        const fetchPlayers = async () => {
+            const data: Player[] = await getPlayers()
+            setAllPlayers(data)
+        }
+
+        fetchPlayers();
+
+    }, []) 
+
 
     // Funzione per aggiornare i giocatori filtrati
     const updatePlayers = useCallback(() => {
@@ -91,7 +102,6 @@ export const FilterProvider = ({ children }: Props) => {
     // valori da passare all'esterno, quindi tutte le variabili e metodi usati
     const MemorizedValue = useMemo(() => {
         const value: FilterContext = {
-            allPlayers,
             filteredPlayers,
             search,
             setSearch,
@@ -106,7 +116,7 @@ export const FilterProvider = ({ children }: Props) => {
         };
         return value;
     }, [
-        allPlayers,
+        setAllPlayers,
         filteredPlayers,
         maxValue,
         minValue,
