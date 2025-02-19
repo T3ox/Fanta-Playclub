@@ -1,10 +1,22 @@
+import { useState } from "react";
 import HamburgerMenu from "../../../utils/icons/HamburgerMenu";
 import Button from "../../atoms/Button/Button";
 import GameSwitcher from "../../atoms/GameSwitcher/GameSwitcher";
+import LoginModal from "../../organisms/LoginModal/LoginModal";
 import "./styles.scss";
 import Props from "./types";
 
 const NavbarRightContainer: React.FC<Props> = ({ handleClick }) => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    
+    const handleLoginClick = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div className="navbar-right-group ">
             <div className="d-flex switch-displayer">
@@ -12,7 +24,7 @@ const NavbarRightContainer: React.FC<Props> = ({ handleClick }) => {
                 <Button
                     text="Accedi/Registrati"
                     className="btn btn-light mx-4"
-                    handle={() => {}}
+                    handle={handleLoginClick} 
                     isActive={true}
                 />
             </div>
@@ -25,6 +37,7 @@ const NavbarRightContainer: React.FC<Props> = ({ handleClick }) => {
                     isActive={true}
                 />
             </div>
+            <LoginModal handleClick={closeModal} showModal={isModalOpen} />
         </div>
     );
 };
