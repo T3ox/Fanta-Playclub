@@ -20,18 +20,19 @@ const filterPlayers = (
     maxValue: number,
     roles: string[],
     teams: string[],
-    teamCost: number,
+    teamCost: number
 ): Player[] => {
-    return players.filter(
-        ({ riotID, cost, role, team }) =>
-            riotID.toLowerCase().includes(search.toLowerCase()) &&
-            cost >= minValue &&
-            cost <= maxValue &&
-            (roles.length === 0 || roles.includes(role)) &&
-            (teams.length === 0 || teams.includes(team)) &&
-            cost + teamCost <= 15,
-    )
-    .sort((a, b) => a.riotID.localeCompare(b.riotID));
+    return players
+        .filter(
+            ({ riotID, cost, role, team }) =>
+                riotID.toLowerCase().includes(search.toLowerCase()) &&
+                cost >= minValue &&
+                cost <= maxValue &&
+                (roles.length === 0 || roles.includes(role)) &&
+                (teams.length === 0 || teams.includes(team)) &&
+                cost + teamCost <= 15
+        )
+        .sort((a, b) => a.riotID.localeCompare(b.riotID));
 };
 // Context per racchiudere i dati condivisi
 const Context = createContext<FilterContext>({
@@ -50,7 +51,7 @@ const Context = createContext<FilterContext>({
 
 // Crei un provider per condividere il context
 export const FilterProvider = ({ children }: Props) => {
-    const { teamCost, selectedTeam, showPlayerModal, team} = useUser();
+    const { teamCost, selectedTeam, showPlayerModal, team } = useUser();
     const COSTSFILTERS = { min: 1, max: 5 };
     const [allPlayers, setAllPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
@@ -60,20 +61,18 @@ export const FilterProvider = ({ children }: Props) => {
     const [roleFilter, setRoleFilter] = useState<string[]>([]);
     const [teamFilter, setTeamFilter] = useState<string[]>([]);
 
-
-    useEffect(()=> {
+    useEffect(() => {
         const fetchPlayers = async () => {
-            const data: Player[] = await getPlayers()
+            const data: Player[] = await getPlayers();
             // Player filtrati per gioco e senza giocatori già scelti
             const filteredByGame = data
-            .filter(player => player.game === selectedTeam)
-            .filter(player => !team.some(({ riotID }) => riotID === player.riotID));
-            setAllPlayers(filteredByGame)
-        }
+                .filter((player) => player.game === selectedTeam)
+                .filter((player) => !team.some(({ riotID }) => riotID === player.riotID));
+            setAllPlayers(filteredByGame);
+        };
 
         fetchPlayers();
-    }, [selectedTeam, team]) 
-
+    }, [selectedTeam, team]);
 
     // Funzione per aggiornare i giocatori filtrati
     const updatePlayers = useCallback(() => {
@@ -85,8 +84,8 @@ export const FilterProvider = ({ children }: Props) => {
                 maxValue,
                 roleFilter,
                 teamFilter,
-                teamCost,
-            ),
+                teamCost
+            )
         );
     }, [allPlayers, search, minValue, maxValue, roleFilter, teamFilter, teamCost]);
 
@@ -95,11 +94,11 @@ export const FilterProvider = ({ children }: Props) => {
         updatePlayers();
     }, [updatePlayers]);
 
-    useEffect(()=> {
+    useEffect(() => {
         if (showPlayerModal === false) {
-            setSearch("")
+            setSearch("");
         }
-    }, [showPlayerModal])
+    }, [showPlayerModal]);
 
     const updateRoles = useCallback((roles: string[]) => setRoleFilter(roles), []);
     const updateTeams = useCallback((teams: string[]) => setTeamFilter(teams), []);
@@ -120,7 +119,16 @@ export const FilterProvider = ({ children }: Props) => {
             updateTeams,
         };
         return value;
-    }, [filteredPlayers, maxValue, minValue, roleFilter, search, teamFilter, updateRoles, updateTeams]);
+    }, [
+        filteredPlayers,
+        maxValue,
+        minValue,
+        roleFilter,
+        search,
+        teamFilter,
+        updateRoles,
+        updateTeams,
+    ]);
 
     // Ritorni il Provider del context
     return <Context.Provider value={MemorizedValue}>{children}</Context.Provider>;

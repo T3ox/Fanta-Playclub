@@ -13,3 +13,20 @@ export interface Player {
     role: string;
     game: string;
 }
+
+export interface Match {
+    rows: MatchRow[]
+}
+
+export interface MatchRow {
+    team: string,
+    riotId: string,
+    combatScore: number,
+    kills: number,
+    deaths: number,
+    assists: number,
+    economyRating: number,
+    firstBlod: number,
+    spikePlanted: number,
+    spikeDefused: number,
+}
