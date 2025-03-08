@@ -1,4 +1,6 @@
+import { VetrinaContent } from "../../organisms/Vetrina/types";
+
 export default interface VetrinaTextProps {
-    text: string;
-    description: string;
+    title: string;
+    description: VetrinaContent;
 }

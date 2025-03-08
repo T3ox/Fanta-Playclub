@@ -2,6 +2,8 @@ export interface HomePageVetrinaContent {
     type: string;
     title: string;
     content: string;
+    list: string[];
+    moreContent: string;
     img: string;
 }
 

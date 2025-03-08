@@ -31,14 +31,17 @@ const Home: React.FC = () => {
                 />
             ))*/}
 
-            {data.map((vetrinaContent, index) => (
-                <Vetrina
-                    type={vetrinaContent.type}
-                    text={vetrinaContent.title}
-                    description={vetrinaContent.content}
-                    image={vetrinaContent.img}
-                />
-            ))}
+            {data.map((vetrinaContent) => {
+                const { content, moreContent, list } = vetrinaContent;
+                
+                return (
+                    <Vetrina
+                        type={vetrinaContent.type}
+                        title={vetrinaContent.title}
+                        image={vetrinaContent.img}
+                        description={{content, moreContent, list}}/>
+                );
+            })}
 
         </>
     );
