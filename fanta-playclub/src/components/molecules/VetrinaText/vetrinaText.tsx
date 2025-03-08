@@ -1,20 +1,29 @@
 import React from "react";
 import "./style.scss";
-import VetrinaTextProps from "./types";
 
-const VetrinaText: React.FC<VetrinaTextProps> = ({ title, description }) => {
-    
-    
-    const { content, moreContent, list } = description
+import Props from "./types";
 
-    console.log(list);
-
+const VetrinaText: React.FC<Props> = ({ title, content, list, moreContent }) => {
     return (
-        <div className="vetrina-text-container m-2">
-            <h2 className="py-2">{title}</h2>
-            <span>{content}</span>
-            <span>{moreContent}</span>
-        </div>
+        <>
+            {list.map((item, key) => (
+                <div className="vetrina-text-container m-2" key={key}>
+                    <h2 className="py-2">{title}</h2>
+                    <span>{content}</span>
+                    <br />
+                    <br />
+                    {list && item.title && <h3>{item.title}</h3>}
+                    {item.content?.length > 0 && (
+                        <ul className="d-flex flex-column align-items-center">
+                            {item.content.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
+                    )}
+                    <span>{moreContent}</span>
+                </div>
+            ))}
+        </>
     );
 };
 

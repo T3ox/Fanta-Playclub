@@ -1,12 +1,12 @@
 import React from "react";
-import  VetrinaImageProps  from "./types";
-import "./style.scss"
+import "./style.scss";
+import VetrinaImageProps from "./types";
 
 const VetrinaImage: React.FC<VetrinaImageProps> = ({ imgSrc, alt }) => {
     return (
-        <div className="d-flex">
-            <img src={imgSrc} alt={alt} id="img-vetrina" />
-        </div>
+        <>
+            <img src={imgSrc} alt={alt} className="image-vetrina" />
+        </>
     );
 };
 

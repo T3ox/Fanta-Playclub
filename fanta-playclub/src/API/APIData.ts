@@ -2,9 +2,9 @@ export interface HomePageVetrinaContent {
     type: string;
     title: string;
     content: string;
-    list: string[];
+    list: { title: string; content: string[] }[];
     moreContent: string;
-    img: string;
+    image: string;
 }
 
 export interface Player {
@@ -17,18 +17,18 @@ export interface Player {
 }
 
 export interface Match {
-    rows: MatchRow[]
+    rows: MatchRow[];
 }
 
 export interface MatchRow {
-    team: string,
-    riotId: string,
-    combatScore: number,
-    kills: number,
-    deaths: number,
-    assists: number,
-    economyRating: number,
-    firstBlod: number,
-    spikePlanted: number,
-    spikeDefused: number,
+    team: string;
+    riotId: string;
+    combatScore: number;
+    kills: number;
+    deaths: number;
+    assists: number;
+    economyRating: number;
+    firstBlod: number;
+    spikePlanted: number;
+    spikeDefused: number;
 }

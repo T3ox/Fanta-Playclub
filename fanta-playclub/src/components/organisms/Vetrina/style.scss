@@ -7,7 +7,7 @@
     .row {
         align-items: center;
         padding: 60px 0;
-        flex-direction: row; 
+        flex-direction: row;
 
         .vetrina-container {
             display: flex;
@@ -19,7 +19,9 @@
             align-items: center;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
 
             &.fade-in {
                 opacity: 1;
@@ -27,20 +29,21 @@
             }
 
             .text {
-                font-size: 24px; 
-                font-weight: bold; 
+                font-size: 24px;
+                font-weight: bold;
             }
 
             .description {
-                font-size: 16px; 
-                margin-top: 10px; 
+                font-size: 16px;
+                margin-top: 10px;
             }
         }
 
         .image-container {
             img {
-                max-width: 100%; 
-                height: auto; 
+                height: 500px;
+                max-width: 100%;
+                overflow: hidden;
             }
         }
     }
@@ -51,12 +54,12 @@
         padding-right: 0 !important;
 
         .row {
-            flex-direction: column; 
+            flex-direction: column;
             padding: 0 0 60px 0;
 
             .image-container {
                 align-items: center;
-                margin-top: 20px; 
+                margin-top: 20px;
             }
         }
     }
@@ -74,8 +77,4 @@
             flex-direction: row-reverse;
         }
     }
-}
-
-#vetrina3 {
-    background-color: $vetrina-3;
 }
