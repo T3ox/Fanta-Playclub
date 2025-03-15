@@ -10,7 +10,7 @@ const TeamCost = () => {
     const TOTALTEAMCOST = 15;
 
     return (
-        <div className="team-cost-container d-flex align-items-center justify-content-between">
+        <div className="team-cost_container d-flex align-items-center justify-content-between">
             <div className="progres-container">
                 <TeamCostBar teamCost={teamCost} totalTeamCost={TOTALTEAMCOST} />
             </div>

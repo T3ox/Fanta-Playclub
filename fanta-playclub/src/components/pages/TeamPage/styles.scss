@@ -5,5 +5,7 @@
     top: 0;
     overflow: hidden;
     height: calc(100svh - $navbar-height-lg);
+    //height: auto;
     background-color: black;
+    padding: 20px;
 }

@@ -5,10 +5,7 @@ import "./styles.scss";
 
 const TeamPage = () => {
     return (
-        <div
-            className="team-page d-flex align-items-center flex-column"
-            style={{ backgroundColor: "black" }}
-        >
+        <div className="team-page d-flex align-items-center flex-column">
             <TeamCost />
             <TeamGroup />
         </div>

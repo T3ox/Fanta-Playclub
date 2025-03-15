@@ -18,13 +18,16 @@ const TeamGroup = () => {
     };
 
     return (
-        <div className="team-group-container container d-flex align-items-center flex-column">
-            <div className="team-group container d-flex justify-content-around bg-black">
+        <div className="team-group_container container d-flex align-items-center flex-column">
+            <div className="team-group_wrapper container d-flex justify-content-around bg-black">
                 {team.map((player, index) => (
-                    <div className="custom-col" key={index}>
-                        <div className="player-card_container">
+                    <div
+                        className="team-group_column d-flex align-items-center"
+                        key={index}
+                    >
+                        <div className="team-group_player-card-container">
                             <div
-                                className={`player-card_border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
+                                className={`team-group_player-card-border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
                             >
                                 {emptyPlayerCard(player) ? (
                                     <>
@@ -47,7 +50,7 @@ const TeamGroup = () => {
             <Button
                 text="Conferma"
                 handle={() => {}}
-                className="btn btn-primary team-confirm"
+                className="btn btn-primary team-group_button-confirm"
             />
         </div>
     );
