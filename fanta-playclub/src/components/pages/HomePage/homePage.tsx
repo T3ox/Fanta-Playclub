@@ -20,7 +20,11 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <Header height="60svh" heightLg="90svh" image="/images/chillGuy.jpg" />
+            <Header
+                height="60svh"
+                heightLg="90svh"
+                image="/images/homePage/chillGuy.jpg"
+            />
 
             <div className="vetrina-container">
                 {data.map((vetrinaContent, index) => {

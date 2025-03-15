@@ -48,7 +48,9 @@ const Vetrina: React.FC<HomePageVetrinaContent> = ({
     return (
         <section className="dynamic-container" id={type}>
             <div className="container container-vetrina">
-                <div className="row justify-content-center">
+                <div
+                    className={`row justify-content-center ${type.endsWith("R") ? "flex-row-reverse" : ""}`}
+                >
                     {type.startsWith("vetrinaStandard") && (
                         <>
                             <div
@@ -63,7 +65,7 @@ const Vetrina: React.FC<HomePageVetrinaContent> = ({
                                 />
                             </div>
 
-                            <div className="col-12 col-md-7 col-lg-6 image-container vetrina-container justify-content-center">
+                            <div className="col-12 col-md-7 col-lg-6 image-container vetrina-container justify-content-center ">
                                 <VetrinaImage imgSrc={image} alt={title} />
                             </div>
                         </>
@@ -80,15 +82,12 @@ const Vetrina: React.FC<HomePageVetrinaContent> = ({
 
                     {type === "multiVetrina" && (
                         <>
-                            <h2 style={{ textAlign: "center" }}>{title}</h2>
-                            {list.map((item, index) => {
-                                <div
-                                    key={index}
-                                    className="col-4 text-container vetrina-container justify-content-center bg-black"
-                                >
+                            <h2>{title}</h2>
+                            {list.map((item, index) => (
+                                <div className="col-4">
                                     <VetrinaMultiText list={item} />
-                                </div>;
-                            })}
+                                </div>
+                            ))}
                         </>
                     )}
                 </div>

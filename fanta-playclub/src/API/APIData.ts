@@ -2,7 +2,7 @@ export interface HomePageVetrinaContent {
     type: string;
     title: string;
     content: string;
-    list: { title: string; content: string[] }[];
+    list: { title: string; content: string[]; image: string }[];
     moreContent: string;
     image: string;
 }

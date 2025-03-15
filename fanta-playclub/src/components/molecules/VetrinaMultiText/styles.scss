@@ -1,0 +1,25 @@
+.multi-vetrina {
+    color: black;
+    text-align: center;
+
+    .multi-vetrina_image {
+        width: 90%;
+        aspect-ratio: 1.8 / 1;
+        background-color: rebeccapurple;
+    }
+
+    .multi-vetrina_title {
+        font-size: 28px;
+
+        text-wrap: balance;
+        line-height: 32px;
+        margin-bottom: 4px;
+    }
+
+    .multi-vetrina_subtitle {
+        text-wrap: balance;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

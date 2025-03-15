@@ -7,7 +7,6 @@
     .row {
         align-items: center;
         padding: 60px 0;
-        flex-direction: row;
 
         .vetrina-container {
             display: flex;
@@ -65,16 +64,27 @@
     }
 }
 
-#vetrina1 {
+#vetrinaStandard,
+#vetrinaStandardR {
     background-color: $vetrina-1;
 }
 
-#vetrina2 {
+#multiVetrina,
+#map {
     background-color: $vetrina-2;
 
     .container-vetrina {
         .row {
             flex-direction: row-reverse;
         }
+    }
+}
+
+#multiVetrina {
+    h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: black;
+        text-align: center;
     }
 }
