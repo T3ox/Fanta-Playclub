@@ -1,10 +1,15 @@
 import axios from "axios";
 import { MatchRow } from "./APIData";
-import { API_BASE_URL } from "./apiConfig";
+const usingMock = false;
+const BASE_PATH_MOCK = "http://localhost:3000/get-match-data";
+const TRUE_PATH =
+    "https://fantaplayclub-server-mock-kr01sffba-t3oxs-projects.vercel.app/load-home-page";
 
-const getMatchData = async (): Promise<MatchRow[]> => {
+const URL = usingMock ? BASE_PATH_MOCK : TRUE_PATH;
+
+const getHomePageContent = async (): Promise<MatchRow[]> => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/get-match-data`);
+        const response = await axios.get(URL);
         return response.data.APIResponse;
     } catch (error) {
         console.log(error);
@@ -12,4 +17,4 @@ const getMatchData = async (): Promise<MatchRow[]> => {
     }
 };
 
-export default getMatchData;
+export default getHomePageContent;
