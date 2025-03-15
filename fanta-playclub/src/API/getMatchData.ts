@@ -2,8 +2,7 @@ import axios from "axios";
 import { MatchRow } from "./APIData";
 const usingMock = false;
 const BASE_PATH_MOCK = "http://localhost:3000/get-match-data";
-const TRUE_PATH =
-    "https://fantaplayclub-server-mock-kr01sffba-t3oxs-projects.vercel.app/load-home-page";
+const TRUE_PATH = "https://fantaplayclub-server-mock.vercel.app/get-match-data";
 
 const URL = usingMock ? BASE_PATH_MOCK : TRUE_PATH;
 
