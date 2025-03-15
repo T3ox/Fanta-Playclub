@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useUser } from "../../../utils/context/User";
 import { Player } from "../../../utils/LocalDB/userMock";
 import Button from "../../atoms/Button/Button";
@@ -8,13 +9,31 @@ import "./styles.scss";
 
 const TeamGroup = () => {
     const { selectedTeam, team, showPlayerModal, openModal, closeModal } = useUser();
+    const [isValid, setIsValid] = useState(false);
+    const [isConfirmed, setIsConfirmed] = useState(false);
 
-    function isEmptyObject(player: Player) {
+    /*function isEmptyObject(player: Player) {
         return player.riotID !== "" && player.cost !== 0 ? false : true;
     }
 
     const emptyPlayerCard = (player: Player) => {
         return isEmptyObject(player) ? true : false;
+    };*/
+
+    const isEmptyObject = (player: Player) => {
+        return player.riotID === "" || player.cost === 0;
+    };
+
+    const confirmTeam = () => {
+        const validPlayers = team.filter((player) => !isEmptyObject(player));
+        setIsValid(validPlayers.length === 5);
+        setIsConfirmed(true);
+    };
+
+    const buttonClass = (): String => {
+        if (isConfirmed && !isValid) return "btn btn-outline-danger button-confirm";
+
+        return "btn btn-primary button-confirm";
     };
 
     return (
@@ -29,7 +48,7 @@ const TeamGroup = () => {
                             <div
                                 className={`team-group_player-card-border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
                             >
-                                {emptyPlayerCard(player) ? (
+                                {isEmptyObject(player) ? (
                                     <>
                                         <EmptyPlayerCard
                                             handleClick={() => openModal(index)}
@@ -47,11 +66,21 @@ const TeamGroup = () => {
                 ) : null}
                 {showPlayerModal && <div className="overlay-background"></div>}
             </div>
-            <Button
-                text="Conferma"
-                handle={() => {}}
-                className="btn btn-primary team-group_button-confirm"
-            />
+            <div className="team-group_confirm-section d-flex align-items-center justify-content-between">
+                <div className="team-group_button-confirm d-flex justify-content-end">
+                    <Button
+                        text="Conferma"
+                        handle={confirmTeam}
+                        className={`btn button-confirm ${isConfirmed && !isValid ? "btn-outline-danger" : "btn-primary"}`}
+                        isActive={!(isConfirmed && !isValid)}
+                    />
+                </div>
+                {isConfirmed && !isValid && (
+                    <div className="error-mesage_container d-flex justify-content-start">
+                        <span className="error-message">Il team non è completo</span>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

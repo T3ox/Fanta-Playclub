@@ -2,7 +2,7 @@
 .team-group_container {
     max-width: 100%;
     height: auto;
-    
+
     .team-group_wrapper {
         max-width: 80%;
         padding: 20px;
@@ -75,10 +75,31 @@
         }
     }
 
-    .team-group_button-confirm {
-        padding: 20px 30px;
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: 500;
+    .team-group_confirm-section {
+        width: 80%;
+
+        .team-group_button-confirm {
+            width: calc(56% - 20px);
+            margin-right: 20px;
+
+            .button-confirm {
+                padding: 10px 20px;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: 500;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+
+        .error-mesage_container {
+            width: calc(44% - 20px);
+
+            .error-message {
+                display: inline;
+                color: #dc3545;
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
     }
 }
