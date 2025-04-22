@@ -8,17 +8,9 @@ import TrueModal from "../TrueModal/TrueModal";
 import "./styles.scss";
 
 const TeamGroup = () => {
-    const { selectedTeam, team, showPlayerModal, openModal, closeModal } = useUser();
+    const { selectedGame, team, showPlayerModal, openModal, closeModal } = useUser();
     const [isValid, setIsValid] = useState(false);
     const [isConfirmed, setIsConfirmed] = useState(false);
-
-    /*function isEmptyObject(player: Player) {
-        return player.riotID !== "" && player.cost !== 0 ? false : true;
-    }
-
-    const emptyPlayerCard = (player: Player) => {
-        return isEmptyObject(player) ? true : false;
-    };*/
 
     const isEmptyObject = (player: Player) => {
         return player.riotID === "" || player.cost === 0;
@@ -29,6 +21,7 @@ const TeamGroup = () => {
         setIsValid(validPlayers.length === 5);
         setIsConfirmed(true);
     };
+
 
     const buttonClass = (): String => {
         if (isConfirmed && !isValid) return "btn btn-outline-danger button-confirm";
@@ -46,12 +39,12 @@ const TeamGroup = () => {
                     >
                         <div className="team-group_player-card-container">
                             <div
-                                className={`team-group_player-card-border ${selectedTeam === "LoL" ? "lol" : "valorant"}`}
+                                className={`team-group_player-card-border ${selectedGame === "LoL" ? "lol" : "valorant"}`}
                             >
                                 {isEmptyObject(player) ? (
                                     <>
                                         <EmptyPlayerCard
-                                            handleClick={() => openModal(index)}
+                                            handleClick={() => {openModal(index)}}
                                         />
                                     </>
                                 ) : (

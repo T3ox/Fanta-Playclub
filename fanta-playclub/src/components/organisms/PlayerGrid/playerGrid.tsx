@@ -7,7 +7,7 @@ const PlayersGrid = () => {
 
     return (
         <div className="modal-player-grid-displayer d-flex justify-content-center align-items-center flex-wrap p-3 container">
-            <div className="row justify-content-start">
+            <div className="row justify-content-start w-100">
             {filteredPlayers.length > 0 &&
                 filteredPlayers.map((player) => (
                     <div className="col-6 col-xxl-4 p-2">

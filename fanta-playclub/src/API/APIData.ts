@@ -14,6 +14,7 @@ export interface Player {
     team: string;
     role: string;
     game: string;
+    points: number;
 }
 
 export interface Match {

@@ -10,9 +10,9 @@ import "./styles.scss";
 import Props from "./types";
 
 const FullPlayerCard: React.FC<Props> = ({ player, index }) => {
-    const { selectedTeam, openModal } = useUser();
+    const { selectedGame, openModal } = useUser();
     const imageSetter: string =
-        selectedTeam === "LoL"
+        selectedGame === "LoL"
             ? lolRoleImageSetter(player.role)
             : valorantRoleImageSetter(player.role);
 

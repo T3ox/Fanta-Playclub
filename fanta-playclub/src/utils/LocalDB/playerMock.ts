@@ -6,7 +6,7 @@ export interface Players {
     valorant: Player[];
 }
 
-export const players: Players = {
+/*export const players: Players = {
     lol: [
         {
             iD: 1,
@@ -151,4 +151,4 @@ export const players: Players = {
             role: "Sentinel",
         },
     ],
-};
+};*/

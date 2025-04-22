@@ -51,7 +51,7 @@ const Context = createContext<FilterContext>({
 
 // Crei un provider per condividere il context
 export const FilterProvider = ({ children }: Props) => {
-    const { teamCost, selectedTeam, showPlayerModal, team } = useUser();
+    const { teamCost, selectedGame, showPlayerModal, team } = useUser();
     const COSTSFILTERS = { min: 1, max: 5 };
     const [allPlayers, setAllPlayers] = useState<Player[]>([]);
     const [filteredPlayers, setFilteredPlayers] = useState<Player[]>([]);
@@ -64,15 +64,18 @@ export const FilterProvider = ({ children }: Props) => {
     useEffect(() => {
         const fetchPlayers = async () => {
             const data: Player[] = await getPlayers();
+
+            console.log(teamFilter);
+
             // Player filtrati per gioco e senza giocatori già scelti
             const filteredByGame = data
-                .filter((player) => player.game === selectedTeam)
+                .filter((player) => player.game === selectedGame)
                 .filter((player) => !team.some(({ riotID }) => riotID === player.riotID));
             setAllPlayers(filteredByGame);
         };
 
         fetchPlayers();
-    }, [selectedTeam, team]);
+    }, [selectedGame, team, teamFilter]);
 
     // Funzione per aggiornare i giocatori filtrati
     const updatePlayers = useCallback(() => {

@@ -39,26 +39,26 @@ export const teamImageSetter = (team: string) => {
         case "Gamever Napoli":
             return "";
         case "Hub Good Food & Gaming Zone Voghera":
-            return "/images/hub-voghera.jpg";
+            return "/images/playclubs/hub-voghera.jpg";
         case "Levelx55 Perugia":
-            return "/images/levelx55-perugia.jpeg";
+            return "/images/playclubs/levelx55-perugia.jpeg";
         case "Lobby E-Games Bari":
             return "";
         case "Parrot Sushi-Lan Roma":
-            return "/images/parrot_sushi-roma.png";
+            return "/images/playclubs/parrot_sushi-roma.png";
         case "PLB World Milano":
             return "";
         case "RedShift Gaming Messina":
-            return "/images/red_shift-messina.jpeg";
+            return "/images/playclubs/red_shift-messina.jpeg";
         case "Rift Esports Club Catanzaro":
             return "";
         case "Romagna Esports Club Cesena":
             return "";
         case "SpaceGames Salerno":
-            return "/images/space_games-salerno.jpeg";
+            return "/images/playclubs/space_games-salerno.jpeg";
         case "Spidibit Catania":
             return "";
         case "Titan Gaming Center Milano":
-            return "/images/titan_gaming_center-milano.jpeg";
+            return "/images/playclubs/titan_gaming_center-milano.jpeg";
     }
 };

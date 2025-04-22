@@ -23,18 +23,6 @@ interface FiltersProps {
 }
 
 const FiltersBar = () =>
-    /*{
-    search,
-    setSearch,
-    minValue,
-    maxValue,
-    setMinValue,
-    setMaxValue,
-    roleFilter,
-    setRoleFilter,
-    teamFilter,
-    setTeamFilter,
-}*/
     {
         const [sliderValue, setSliderValue] = useState([
             FILTERSVALUES.minimumCost,

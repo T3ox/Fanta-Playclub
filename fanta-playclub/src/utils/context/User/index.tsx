@@ -13,8 +13,8 @@ import UserContext from "./types";
 
 // Crei un context per racchiudere i dati condivisi
 const Context = createContext<UserContext>({
-    selectedTeam: "",
-    changeSelectedTeam: () => {},
+    selectedGame: "",
+    changeSelectedGame: () => {},
     addPlayerShowModal: () => {},
     openModal: () => {},
     closeModal: () => {},
@@ -26,7 +26,7 @@ const Context = createContext<UserContext>({
 // Crei un provider per condividere il context
 export const UserProvider = ({ children }: Props) => {
     // Variabile impostata a LoL perchè sarà sempre la prima pagina che ti apre
-    const [selectedTeam, setSelectedTeam] = useState("LoL");
+    const [selectedGame, setSelectedGame] = useState("LoL");
     const [showPlayerModal, setShowPlayerModal] = useState(false);
     const [teamCost, setTeamCost] = useState<number>(0);
     const [clickedItem, setClickedItem] = useState(0);
@@ -55,8 +55,8 @@ export const UserProvider = ({ children }: Props) => {
     }, [teamCost]);
 
     // Metodo per cambiare il team selezionato
-    const changeSelectedTeam = useCallback(() => {
-        setSelectedTeam((prevTeam) => {
+    const changeSelectedGame = useCallback(() => {
+        setSelectedGame((prevTeam) => {
             if (prevTeam === "LoL") {
                 userMock.players.lol = team;
                 setTeam(userMock.players.valorant);
@@ -99,8 +99,8 @@ export const UserProvider = ({ children }: Props) => {
     // valori da passare all'esterno, quindi tutte le variabili e metodi usati
     const MemorizedValue = useMemo(() => {
         const value: UserContext = {
-            selectedTeam,
-            changeSelectedTeam,
+            selectedGame,
+            changeSelectedGame,
             addPlayerShowModal,
             showPlayerModal,
             team,
@@ -111,10 +111,10 @@ export const UserProvider = ({ children }: Props) => {
         return value;
     }, [
         addPlayerShowModal,
-        changeSelectedTeam,
+        changeSelectedGame,
         closeModal,
         openModal,
-        selectedTeam,
+        selectedGame,
         showPlayerModal,
         team,
         teamCost,

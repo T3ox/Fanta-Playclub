@@ -10,7 +10,7 @@ import "./styles.scss";
 import Props from "./types";
 
 const ModalPlayerCard: React.FC<Props> = ({ player }) => {
-    const { addPlayerShowModal, closeModal, selectedTeam } = useUser();
+    const { addPlayerShowModal, closeModal, selectedGame } = useUser();
     const { updateRoles, updateTeams } = useModal();
 
     const playClubName = (team: string): JSX.Element => {
@@ -28,7 +28,7 @@ const ModalPlayerCard: React.FC<Props> = ({ player }) => {
     };
 
     const imageSetter: string =
-        selectedTeam === "LoL"
+    selectedGame === "LoL"
             ? lolRoleImageSetter(player.role)
             : valorantRoleImageSetter(player.role);
 
@@ -49,7 +49,7 @@ const ModalPlayerCard: React.FC<Props> = ({ player }) => {
                     </div>
                     {playClubName(player.team)}
                 </div>
-                <div className="player-card-general d-flex align-items-center flex-column">
+                <div className="player-card-general d-flex align-items-center justify-content-center flex-column">
                     <div className="d-flex justify-content-center align-items-center player-cost">
                         <img src="/images/credits-icon.png" alt="" />
                         <p className="points">{player.cost}</p>

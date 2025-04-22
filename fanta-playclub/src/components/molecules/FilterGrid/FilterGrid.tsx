@@ -25,19 +25,16 @@ const FilterGrid: React.FC<Props> = ({ labels, type }) => {
             {labels.map((label, key) => {
                 const isActive = type === "role"
                     ? roleFilter.includes(label)
-                    : teamFilter.includes(label);
-                
-                return(<div className="m-1" key={key}>
-                    <Button 
-                        text={label}
-                        handle={() => {
-                            handleButtonClick(label)
-                        }}
-                        className={`btn grid-button ${isActive ? "active" : ""}`}
-                        isActive={isActive}/>
-                    
-                </div>)
-})}
+                    : teamFilter.includes(label);                
+                return(
+                    <div className="m-1" key={key}>
+                        <Button 
+                            text={label}
+                            handle={() => handleButtonClick(label)}
+                            className={`btn grid-button ${isActive ? "active" : ""}`}
+                            isActive={true}/>
+                    </div>)
+            })}
         </div>
     );
 };

@@ -3,7 +3,7 @@ import TeamCostBar from "../../atoms/TeamCostBar/TeamCostBar";
 import "./styles.scss";
 
 const TeamCost = () => {
-    const { selectedTeam, team, teamCost } = useUser();
+    const { teamCost } = useUser();
 
     // Dichiarazione useState per costo del proprio team, variabile per team scelto dal Context e costo massimo del team
     //const [teamCost, setTeamCost] = useState<number>(sumCosts());

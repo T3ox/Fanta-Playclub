@@ -2,7 +2,7 @@ import "./styles.scss";
 import Props from "./types";
 
 const Button: React.FC<Props> = ({ text, handle, className, children, isActive }) => {
-    console.log("isactive", isActive);
+    //console.log("isActive", isActive);
     return (
         <>
             <button className={className} onClick={handle} disabled={!isActive}>

@@ -4,6 +4,8 @@ export interface Player {
     cost: number;
     team: string;
     role: string;
+    game: string;
+    points: number;
 }
 
 export interface Players {
@@ -30,6 +32,8 @@ export const userMock: UserMock = {
                 team: "",
                 cost: 0,
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 2,
@@ -37,6 +41,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 3,
@@ -44,6 +50,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 4,
@@ -51,6 +59,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 5,
@@ -58,6 +68,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
         ],
         valorant: [
@@ -67,6 +79,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 2,
@@ -74,6 +88,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 3,
@@ -81,6 +97,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 4,
@@ -88,6 +106,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
             {
                 iD: 5,
@@ -95,6 +115,8 @@ export const userMock: UserMock = {
                 cost: 0,
                 team: "",
                 role: "",
+                game: "",
+                points: 0,
             },
         ],
     },

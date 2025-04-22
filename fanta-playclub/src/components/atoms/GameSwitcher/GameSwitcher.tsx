@@ -3,13 +3,13 @@ import { useUser } from "../../../utils/context/User";
 import "./style.scss";
 
 const GameSwitcher = () => {
-    const { changeSelectedTeam } = useUser();
+    const { changeSelectedGame } = useUser();
     const [isClickable, setIsClickable] = useState(true);
 
     const handleClick = () => {
         if (isClickable) {
             setIsClickable(false);
-            changeSelectedTeam();
+            changeSelectedGame();
 
             setTimeout(() => {
                 setIsClickable(true);
